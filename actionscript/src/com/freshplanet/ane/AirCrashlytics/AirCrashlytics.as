@@ -44,11 +44,11 @@ package com.freshplanet.ane.AirCrashlytics
 		
 		public static function crash():void
 		{
-			call("crash");
+			var worked:Boolean = call("crash");
 			
-			if (Capabilities.manufacturer.indexOf("iOS") == -1)
+			if (!worked && Capabilities.manufacturer.indexOf("Android") > -1)
 			{
-				log("The test crash method only works on iOS at the moment");
+				log("In order to force a crash on Android, you need to declare the following activity in your manifest: com.freshplanet.ane.AirCrashlytics.activities.CrashActivity");
 			}
 		}
 		

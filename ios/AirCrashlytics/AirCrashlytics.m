@@ -32,7 +32,7 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsStart)
 DEFINE_ANE_FUNCTION(AirCrashlyticsCrash)
 {
     [[Crashlytics sharedInstance] crash];
-    return nil;
+    return FPANE_BOOLToFREObject(YES);
 }
 
 DEFINE_ANE_FUNCTION(AirCrashlyticsGetApiKey)

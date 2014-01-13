@@ -18,9 +18,11 @@
 
 package com.freshplanet.ane.AirCrashlytics.functions;
 
+import android.content.Intent;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
-import com.crashlytics.android.Crashlytics;
+import com.freshplanet.ane.AirCrashlytics.activities.CrashActivity;
 
 public class CrashFunction extends BaseFunction
 {
@@ -28,8 +30,18 @@ public class CrashFunction extends BaseFunction
 	{
 		super.call(context, args);
 		
-		Crashlytics.getInstance().crash();
+		Intent intent = new Intent(context.getActivity().getApplicationContext(), CrashActivity.class);
+		Boolean activityDeclared = (context.getActivity().getPackageManager().resolveActivity(intent, 0) != null);
+		context.getActivity().startActivity(intent);
 		
-		return null;
+		try
+		{
+			return FREObject.newObject(activityDeclared);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
