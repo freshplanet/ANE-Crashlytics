@@ -99,7 +99,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SCRIPT_DIR=`dirname $0`\n\n# Unzip .ipa\nunzip $IPA_PATH -d $SCRIPT_DIR >/dev/null\n\n# Copy Info.plist and .dSYM files to overrides generated ones\nAPP_PATH=$SCRIPT_DIR/Payload/`ls $SCRIPT_DIR/Payload | grep app`\nexport INFOPLIST_PATH=\"Info.plist\"\nmkdir $BUILT_PRODUCTS_DIR\ncp -r $APP_PATH $BUILT_PRODUCTS_DIR/$TARGET_NAME\ncp $APP_PATH/Info.plist $BUILT_PRODUCTS_DIR\ncp -r $DSYM_PATH $DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME\n\n# Run the upload script\n$CRASHLYTICS_FRAMEWORK_PATH/run $CRASHLYTICS_API_KEY";
+			shellScript = "SCRIPT_DIR=`dirname $0`\n\n# Unzip .ipa\nunzip $IPA_PATH -d $SCRIPT_DIR >/dev/null\n\n# Copy Info.plist and .dSYM files to overrides generated ones\nAPP_PATH=$SCRIPT_DIR/Payload/`ls $SCRIPT_DIR/Payload | grep app`\nexport INFOPLIST_PATH=\"Info.plist\"\nmkdir $BUILT_PRODUCTS_DIR\ncp -r \"$APP_PATH\" $BUILT_PRODUCTS_DIR/$TARGET_NAME\ncp \"$APP_PATH\"/Info.plist $BUILT_PRODUCTS_DIR\ncp -r $DSYM_PATH $DWARF_DSYM_FOLDER_PATH/$DWARF_DSYM_FILE_NAME\n\n# Run the upload script\n$CRASHLYTICS_FRAMEWORK_PATH/run $CRASHLYTICS_API_KEY";
 		};
 /* End PBXShellScriptBuildPhase section */
 
