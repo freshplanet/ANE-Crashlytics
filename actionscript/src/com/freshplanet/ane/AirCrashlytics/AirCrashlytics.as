@@ -69,7 +69,10 @@ package com.freshplanet.ane.AirCrashlytics
 		
 		public static function set userIdentifier(value:String):void
 		{
-			call("setUserIdentifier", value);
+			if (value)
+			{
+				call("setUserIdentifier", value);
+			}
 		}
 		
 		public static function setBool(key:String, value:Boolean):void
