@@ -231,6 +231,7 @@
 		392939BA1875C76100D62005 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/AirCrashlytics.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -248,6 +249,7 @@
 		392939BB1875C76100D62005 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/AirCrashlytics.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

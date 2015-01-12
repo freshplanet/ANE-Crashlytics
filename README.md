@@ -82,6 +82,9 @@ cd /path/to/the/ane
 tools/run.sh CRASHLYTICS_API_KEY PATH_TO_IPA PATH_TO_DSYM
 ```
 
+Notes:
+* included binary has been compiled for 64-bit iOS support
+
 
 Build from source
 ---------
