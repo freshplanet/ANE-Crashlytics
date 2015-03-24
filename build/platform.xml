@@ -1,6 +1,11 @@
-<platform xmlns="http://ns.adobe.com/air/extension/3.9">
-    <sdkVersion>7.0</sdkVersion>
+<platform xmlns="http://ns.adobe.com/air/extension/17.0">
+    <sdkVersion>6.0</sdkVersion>
+    <linkerOptions>
+        <option>-ios_version_min 6.0</option>
+        <option>-framework Fabric</option>
+    </linkerOptions> 
     <packagedDependencies>
+        <packagedDependency>Fabric.framework</packagedDependency>
         <packagedDependency>Crashlytics.framework</packagedDependency>
     </packagedDependencies>
 </platform>
