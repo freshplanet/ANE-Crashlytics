@@ -10,8 +10,9 @@
 		3929399A1875C76100D62005 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392939991875C76100D62005 /* Foundation.framework */; };
 		3929399F1875C76100D62005 /* AirCrashlytics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3929399E1875C76100D62005 /* AirCrashlytics.h */; };
 		392939A11875C76100D62005 /* AirCrashlytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 392939A01875C76100D62005 /* AirCrashlytics.m */; };
-		392939C11875C7C200D62005 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392939BF1875C7C200D62005 /* Crashlytics.framework */; };
 		392939C41875C83B00D62005 /* FPANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 392939C31875C83B00D62005 /* FPANEUtils.m */; };
+		5A30FDD71AB7526900ED845F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A30FDD51AB7524D00ED845F /* Crashlytics.framework */; };
+		5A30FDD81AB7526B00ED845F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A30FDD61AB7524D00ED845F /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,10 +34,11 @@
 		3929399D1875C76100D62005 /* AirCrashlytics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirCrashlytics-Prefix.pch"; sourceTree = "<group>"; };
 		3929399E1875C76100D62005 /* AirCrashlytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirCrashlytics.h; sourceTree = "<group>"; };
 		392939A01875C76100D62005 /* AirCrashlytics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirCrashlytics.m; sourceTree = "<group>"; };
-		392939BF1875C7C200D62005 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		392939C01875C7C200D62005 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashRuntimeExtensions.h; path = ../FlashRuntimeExtensions.h; sourceTree = "<group>"; };
 		392939C21875C83B00D62005 /* FPANEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPANEUtils.h; sourceTree = "<group>"; };
 		392939C31875C83B00D62005 /* FPANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPANEUtils.m; sourceTree = "<group>"; };
+		5A30FDD51AB7524D00ED845F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		5A30FDD61AB7524D00ED845F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				392939C11875C7C200D62005 /* Crashlytics.framework in Frameworks */,
 				3929399A1875C76100D62005 /* Foundation.framework in Frameworks */,
+				5A30FDD81AB7526B00ED845F /* Fabric.framework in Frameworks */,
+				5A30FDD71AB7526900ED845F /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +58,8 @@
 		3929398D1875C76100D62005 = {
 			isa = PBXGroup;
 			children = (
+				5A30FDD41AB7524D00ED845F /* Frameworks */,
 				3929399B1875C76100D62005 /* AirCrashlytics */,
-				392939981875C76100D62005 /* Frameworks */,
 				392939971875C76100D62005 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,15 +70,6 @@
 				392939961875C76100D62005 /* libAirCrashlytics.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		392939981875C76100D62005 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				392939BF1875C7C200D62005 /* Crashlytics.framework */,
-				392939991875C76100D62005 /* Foundation.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3929399B1875C76100D62005 /* AirCrashlytics */ = {
@@ -97,6 +91,16 @@
 				392939C31875C83B00D62005 /* FPANEUtils.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A30FDD41AB7524D00ED845F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				392939991875C76100D62005 /* Foundation.framework */,
+				5A30FDD51AB7524D00ED845F /* Crashlytics.framework */,
+				5A30FDD61AB7524D00ED845F /* Fabric.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +166,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -191,7 +195,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -200,7 +204,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -223,6 +227,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -236,6 +241,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirCrashlytics/AirCrashlytics-Prefix.pch";
@@ -254,6 +261,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirCrashlytics/AirCrashlytics-Prefix.pch";

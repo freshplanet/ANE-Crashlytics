@@ -17,6 +17,7 @@
 //////////////////////////////////////////////////////////////////////////////////////
 
 #import "AirCrashlytics.h"
+#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
 
@@ -24,8 +25,7 @@ static FREContext context;
 
 DEFINE_ANE_FUNCTION(AirCrashlyticsStart)
 {
-    NSString *apiKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CrashlyticsAPIKey"];
-    [Crashlytics startWithAPIKey:apiKey];
+    [Fabric with:@[CrashlyticsKit]];
     return nil;
 }
 
