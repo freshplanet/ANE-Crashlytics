@@ -2,7 +2,6 @@
     <sdkVersion>6.0</sdkVersion>
     <linkerOptions>
         <option>-ios_version_min 6.0</option>
-        <option>-framework Fabric</option>
     </linkerOptions> 
     <packagedDependencies>
         <packagedDependency>Fabric.framework</packagedDependency>
