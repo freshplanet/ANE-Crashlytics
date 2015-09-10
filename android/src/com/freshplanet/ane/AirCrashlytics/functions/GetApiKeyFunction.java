@@ -35,7 +35,7 @@ public class GetApiKeyFunction extends BaseFunction
 		{
 			Activity activity = context.getActivity();
 			ApplicationInfo ai = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
-		    String apiKey = ai.metaData.getString("com.crashlytics.ApiKey");
+		    String apiKey = ai.metaData.getString("io.fabric.ApiKey");
 			return FREObject.newObject(apiKey);
 		}
 		catch (Exception e)
