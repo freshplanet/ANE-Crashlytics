@@ -15,6 +15,7 @@ actionscript/bin
 # Android
 android/bin
 android/gen
+android/build
 android/lint.xml
 .classpath
 proguard-project.txt
@@ -27,3 +28,11 @@ xcuserdata
 Icon
 Thumbs.db
 .DS_Store
+
+# gradle
+.gradle
+
+# intellij
+.idea
+*.iml
+out

@@ -30,7 +30,7 @@ public class GetVersionFunction extends BaseFunction
 		
 		try
 		{
-			return FREObject.newObject(Crashlytics.getCrashlyticsVersion());
+			return FREObject.newObject(Crashlytics.getInstance().getVersion());
 		}
 		catch (Exception e)
 		{
