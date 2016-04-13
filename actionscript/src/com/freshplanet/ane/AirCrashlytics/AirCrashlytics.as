@@ -18,8 +18,8 @@
 
 package com.freshplanet.ane.AirCrashlytics
 {
-import flash.events.StatusEvent;
-import flash.external.ExtensionContext;
+	import flash.events.StatusEvent;
+	import flash.external.ExtensionContext;
 	import flash.system.Capabilities;
 
 	public class AirCrashlytics

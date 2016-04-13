@@ -111,16 +111,16 @@ void AirCrashlyticsContextInitializer(void* extData, const uint8_t* ctxType, FRE
                                    uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
     NSDictionary *functions = @{
-        @"start":                                   [NSValue valueWithPointer:&AirCrashlyticsStart],
-        @"crash":                                   [NSValue valueWithPointer:&AirCrashlyticsCrash],
-        @"getApiKey":                               [NSValue valueWithPointer:&AirCrashlyticsGetApiKey],
-        @"getVersion":                              [NSValue valueWithPointer:&AirCrashlyticsGetVersion],
-        @"setDebugMode":                            [NSValue valueWithPointer:&AirCrashlyticsSetDebugMode],
-        @"setUserIdentifier":                       [NSValue valueWithPointer:&AirCrashlyticsSetUserIdentifier],
-        @"setBool":                                 [NSValue valueWithPointer:&AirCrashlyticsSetBool],
-        @"setInt":                                  [NSValue valueWithPointer:&AirCrashlyticsSetInt],
-        @"setFloat":                                [NSValue valueWithPointer:&AirCrashlyticsSetFloat],
-        @"setString":                               [NSValue valueWithPointer:&AirCrashlyticsSetString]
+        @"start":               [NSValue valueWithPointer:&AirCrashlyticsStart],
+        @"crash":               [NSValue valueWithPointer:&AirCrashlyticsCrash],
+        @"getApiKey":           [NSValue valueWithPointer:&AirCrashlyticsGetApiKey],
+        @"getVersion":          [NSValue valueWithPointer:&AirCrashlyticsGetVersion],
+        @"setDebugMode":        [NSValue valueWithPointer:&AirCrashlyticsSetDebugMode],
+        @"setUserIdentifier":   [NSValue valueWithPointer:&AirCrashlyticsSetUserIdentifier],
+        @"setBool":             [NSValue valueWithPointer:&AirCrashlyticsSetBool],
+        @"setInt":              [NSValue valueWithPointer:&AirCrashlyticsSetInt],
+        @"setFloat":            [NSValue valueWithPointer:&AirCrashlyticsSetFloat],
+        @"setString":           [NSValue valueWithPointer:&AirCrashlyticsSetString]
     };
     
     *numFunctionsToTest = (uint32_t)[functions count];
