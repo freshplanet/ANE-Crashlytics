@@ -13,6 +13,7 @@
 		392939C41875C83B00D62005 /* FPANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 392939C31875C83B00D62005 /* FPANEUtils.m */; };
 		5A30FDD71AB7526900ED845F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A30FDD51AB7524D00ED845F /* Crashlytics.framework */; };
 		5A30FDD81AB7526B00ED845F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A30FDD61AB7524D00ED845F /* Fabric.framework */; };
+		9458F9F71CB2E9550046B2DC /* CrashlyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9458F9F61CB2E9550046B2DC /* CrashlyticsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,8 @@
 		392939C31875C83B00D62005 /* FPANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPANEUtils.m; sourceTree = "<group>"; };
 		5A30FDD51AB7524D00ED845F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		5A30FDD61AB7524D00ED845F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		9458F9F51CB2E37B0046B2DC /* CrashlyticsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashlyticsManager.h; sourceTree = "<group>"; };
+		9458F9F61CB2E9550046B2DC /* CrashlyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashlyticsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				3929399E1875C76100D62005 /* AirCrashlytics.h */,
 				392939A01875C76100D62005 /* AirCrashlytics.m */,
 				3929399C1875C76100D62005 /* Supporting Files */,
+				9458F9F51CB2E37B0046B2DC /* CrashlyticsManager.h */,
+				9458F9F61CB2E9550046B2DC /* CrashlyticsManager.m */,
 			);
 			path = AirCrashlytics;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				392939C41875C83B00D62005 /* FPANEUtils.m in Sources */,
+				9458F9F71CB2E9550046B2DC /* CrashlyticsManager.m in Sources */,
 				392939A11875C76100D62005 /* AirCrashlytics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

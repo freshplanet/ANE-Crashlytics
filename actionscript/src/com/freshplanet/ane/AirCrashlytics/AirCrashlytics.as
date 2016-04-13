@@ -18,7 +18,8 @@
 
 package com.freshplanet.ane.AirCrashlytics
 {
-	import flash.external.ExtensionContext;
+import flash.events.StatusEvent;
+import flash.external.ExtensionContext;
 	import flash.system.Capabilities;
 
 	public class AirCrashlytics
@@ -38,14 +39,22 @@ package com.freshplanet.ane.AirCrashlytics
 		public static function start():void
 		{
 			call("start");
-			
+
 			log("Crashlytics " + version + " initialized with API key " + apiKey);
 		}
-		
+
+		public static function didDetectCrashInPreviousExecution(callback)
+		{
+			_context.addEventListener(StatusEvent.STATUS, function(e:StatusEvent){
+				callback(e.code, e.level);
+			});
+		}
+
+
 		public static function crash():void
 		{
 			var worked:Boolean = call("crash");
-			
+
 			if (!worked && Capabilities.manufacturer.indexOf("Android") > -1)
 			{
 				log("In order to force a crash on Android, you need to declare the following activity in your manifest: com.freshplanet.ane.AirCrashlytics.activities.CrashActivity");

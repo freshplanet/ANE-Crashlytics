@@ -19,12 +19,23 @@
 #import "AirCrashlytics.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "CrashlyticsManager.h"
 
 
 static FREContext context;
 
+CrashlyticsManager *getCrashlyticsManagerFromContext(FREContext context)
+{
+    CFTypeRef crashlyticsManagerRef;
+    FREGetContextNativeData(context, (void *) &crashlyticsManagerRef);
+    return (__bridge CrashlyticsManager *) crashlyticsManagerRef;
+}
+
+
 DEFINE_ANE_FUNCTION(AirCrashlyticsStart)
 {
+    CrashlyticsManager * crashlyticsManager = getCrashlyticsManagerFromContext(context);
+    CrashlyticsKit.delegate = crashlyticsManager;
     [Fabric with:@[CrashlyticsKit]];
     return nil;
 }
@@ -100,16 +111,16 @@ void AirCrashlyticsContextInitializer(void* extData, const uint8_t* ctxType, FRE
                                    uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
     NSDictionary *functions = @{
-        @"start":               [NSValue valueWithPointer:&AirCrashlyticsStart],
-        @"crash":               [NSValue valueWithPointer:&AirCrashlyticsCrash],
-        @"getApiKey":           [NSValue valueWithPointer:&AirCrashlyticsGetApiKey],
-        @"getVersion":          [NSValue valueWithPointer:&AirCrashlyticsGetVersion],
-        @"setDebugMode":        [NSValue valueWithPointer:&AirCrashlyticsSetDebugMode],
-        @"setUserIdentifier":   [NSValue valueWithPointer:&AirCrashlyticsSetUserIdentifier],
-        @"setBool":             [NSValue valueWithPointer:&AirCrashlyticsSetBool],
-        @"setInt":              [NSValue valueWithPointer:&AirCrashlyticsSetInt],
-        @"setFloat":            [NSValue valueWithPointer:&AirCrashlyticsSetFloat],
-        @"setString":           [NSValue valueWithPointer:&AirCrashlyticsSetString]
+        @"start":                                   [NSValue valueWithPointer:&AirCrashlyticsStart],
+        @"crash":                                   [NSValue valueWithPointer:&AirCrashlyticsCrash],
+        @"getApiKey":                               [NSValue valueWithPointer:&AirCrashlyticsGetApiKey],
+        @"getVersion":                              [NSValue valueWithPointer:&AirCrashlyticsGetVersion],
+        @"setDebugMode":                            [NSValue valueWithPointer:&AirCrashlyticsSetDebugMode],
+        @"setUserIdentifier":                       [NSValue valueWithPointer:&AirCrashlyticsSetUserIdentifier],
+        @"setBool":                                 [NSValue valueWithPointer:&AirCrashlyticsSetBool],
+        @"setInt":                                  [NSValue valueWithPointer:&AirCrashlyticsSetInt],
+        @"setFloat":                                [NSValue valueWithPointer:&AirCrashlyticsSetFloat],
+        @"setString":                               [NSValue valueWithPointer:&AirCrashlyticsSetString]
     };
     
     *numFunctionsToTest = (uint32_t)[functions count];
@@ -125,10 +136,17 @@ void AirCrashlyticsContextInitializer(void* extData, const uint8_t* ctxType, FRE
     
     *functionsToSet = func;
     
+    CrashlyticsManager *crashlyticsManager = [[CrashlyticsManager alloc] initWithContext:ctx];
+    FRESetContextNativeData(ctx, (void *)CFBridgingRetain(crashlyticsManager));
+    
     context = ctx;
 }
 
-void AirCrashlyticsContextFinalizer(FREContext ctx) { }
+void AirCrashlyticsContextFinalizer(FREContext ctx) {
+    CFTypeRef crashlyticsManagerRef;
+    FREGetContextNativeData(ctx, (void **)&crashlyticsManagerRef);
+    CFBridgingRelease(crashlyticsManagerRef);
+}
 
 void AirCrashlyticsInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet)
 {
