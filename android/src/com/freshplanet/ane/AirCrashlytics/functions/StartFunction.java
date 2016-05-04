@@ -21,7 +21,6 @@ package com.freshplanet.ane.AirCrashlytics.functions;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
 import com.crashlytics.android.Crashlytics;
-import io.fabric.sdk.android.Fabric;
 
 public class StartFunction extends BaseFunction
 {
@@ -29,7 +28,7 @@ public class StartFunction extends BaseFunction
 	{
 		super.call(context, args);
 		
-		Fabric.with(context.getActivity().getApplicationContext(), new Crashlytics());
+		Crashlytics.start(context.getActivity());
 		
 		return null;
 	}
