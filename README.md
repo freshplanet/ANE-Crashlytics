@@ -28,7 +28,7 @@ You will then need to add your API key in your application descriptor twice, onc
 </iPhone>
 ```
 
-* On Android (note the INTERNET permission as well):
+* On Android (note the INTERNET permission and the crashActivity declaration as well):
 
 ```xml
 <android>
@@ -45,15 +45,18 @@ You will then need to add your API key in your application descriptor twice, onc
 
                 ...
                 
-                <meta-data android:name="com.crashlytics.ApiKey" android:value="YOUR_API_KEY"/>
-                
+                <meta-data android:name="io.fabric.ApiKey" android:value="YOUR_API_KEY"/>
+
+                ...
+
+                <activity android:name="com.freshplanet.ane.AirCrashlytics.activities.CrashActivity" />
+
             </application>
 
         </manifest>
     ]]></manifestAdditions>
 </android>
 ```
-
 
 Usage
 -----
