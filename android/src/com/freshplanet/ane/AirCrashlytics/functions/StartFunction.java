@@ -22,15 +22,32 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
 import com.crashlytics.android.Crashlytics;
 import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.core.CrashlyticsListener;
+import com.crashlytics.android.core.CrashlyticsCore;
 
 public class StartFunction extends BaseFunction
 {
 	public FREObject call(FREContext context, FREObject[] args)
 	{
 		super.call(context, args);
-		
-		Fabric.with(context.getActivity().getApplicationContext(), new Crashlytics());
-		
+
+        final FREContext cont = context;
+
+        final CrashlyticsListener crashlyticsListener = new CrashlyticsListener() {
+            @Override
+            public void crashlyticsDidDetectCrashDuringPreviousExecution(){
+                cont.dispatchStatusEventAsync("CRASH DETECTED IN LAST SESSION", "No crash data...");
+            }
+        };
+
+        final CrashlyticsCore crashlyticsCore = new CrashlyticsCore
+                .Builder()
+                .listener(crashlyticsListener)
+                .build();
+
+
+        Fabric.with(context.getActivity().getApplicationContext(), new Crashlytics.Builder().core(crashlyticsCore).build());
+
 		return null;
 	}
 }
