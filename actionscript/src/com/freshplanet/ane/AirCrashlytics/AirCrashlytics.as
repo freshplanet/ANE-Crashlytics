@@ -43,7 +43,7 @@ package com.freshplanet.ane.AirCrashlytics
 			log("Crashlytics " + version + " initialized with API key " + apiKey);
 		}
 
-		public static function didDetectCrashInPreviousExecution(callback)
+		public static function didDetectCrashInPreviousExecution(callback:Function):void
 		{
 			_context.addEventListener(StatusEvent.STATUS, function(e:StatusEvent){
 				callback(e.code, e.level);
