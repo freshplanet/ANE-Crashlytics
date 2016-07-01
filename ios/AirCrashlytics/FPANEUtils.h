@@ -36,4 +36,4 @@ NSArray * FPANE_FREObjectToNSArrayOfNSString(FREObject object);
 NSDictionary * FPANE_FREObjectsToNSDictionaryOfNSString(FREObject keys, FREObject values);
 
 FREObject FPANE_BOOLToFREObject(BOOL boolean);
-FREObject FPANE_NSStringToFREOBject(NSString *string);
+FREObject FPANE_NSStringToFREObject(NSString *string);

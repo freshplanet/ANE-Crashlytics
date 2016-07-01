@@ -16,21 +16,12 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
+#import "Crashlytics/Crashlytics.h"
 
-// C interface
-DEFINE_ANE_FUNCTION(AirCrashlyticsStart);
-DEFINE_ANE_FUNCTION(AirCrashlyticsCrash);
-DEFINE_ANE_FUNCTION(AirCrashlyticsGetApiKey);
-DEFINE_ANE_FUNCTION(AirCrashlyticsGetVersion);
-DEFINE_ANE_FUNCTION(AirCrashlyticsSetDebugMode);
-DEFINE_ANE_FUNCTION(AirCrashlyticsSetUserIdentifier);
-DEFINE_ANE_FUNCTION(AirCrashlyticsSetBool);
-DEFINE_ANE_FUNCTION(AirCrashlyticsSetInt);
-DEFINE_ANE_FUNCTION(AirCrashlyticsSetFloat);
-DEFINE_ANE_FUNCTION(AirCrashlyticsSetString);
+@interface AirCrashlytics : NSObject <CrashlyticsDelegate>
 
+@end
 
-// ANE Setup
 void AirCrashlyticsContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet);
 void AirCrashlyticsContextFinalizer(FREContext ctx);
 void AirCrashlyticsInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet);
