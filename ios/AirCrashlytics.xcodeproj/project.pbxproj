@@ -7,112 +7,110 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3929399A1875C76100D62005 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392939991875C76100D62005 /* Foundation.framework */; };
-		3929399F1875C76100D62005 /* AirCrashlytics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3929399E1875C76100D62005 /* AirCrashlytics.h */; };
-		392939A11875C76100D62005 /* AirCrashlytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 392939A01875C76100D62005 /* AirCrashlytics.m */; };
-		392939C41875C83B00D62005 /* FPANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 392939C31875C83B00D62005 /* FPANEUtils.m */; };
-		5A30FDD71AB7526900ED845F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A30FDD51AB7524D00ED845F /* Crashlytics.framework */; };
-		5A30FDD81AB7526B00ED845F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A30FDD61AB7524D00ED845F /* Fabric.framework */; };
+		A29C4F8C1F18F7F400B52762 /* AirCrashlytics.m in Sources */ = {isa = PBXBuildFile; fileRef = A29C4F8B1F18F7F400B52762 /* AirCrashlytics.m */; };
+		A29C4F8D1F18F7F400B52762 /* AirCrashlytics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A29C4F8A1F18F7F400B52762 /* AirCrashlytics.h */; };
+		A29C4F9D1F1919A000B52762 /* FPANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A29C4F9C1F1919A000B52762 /* FPANEUtils.m */; };
+		B3A03ED33C6E753B72FDEFD9 /* libPods-AirCrashlytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D6AD0925AE969991E4DB3F /* libPods-AirCrashlytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		392939941875C76100D62005 /* CopyFiles */ = {
+		A29C4F851F18F7F400B52762 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				3929399F1875C76100D62005 /* AirCrashlytics.h in CopyFiles */,
+				A29C4F8D1F18F7F400B52762 /* AirCrashlytics.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		392939961875C76100D62005 /* libAirCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirCrashlytics.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		392939991875C76100D62005 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3929399D1875C76100D62005 /* AirCrashlytics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirCrashlytics-Prefix.pch"; sourceTree = "<group>"; };
-		3929399E1875C76100D62005 /* AirCrashlytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirCrashlytics.h; sourceTree = "<group>"; };
-		392939A01875C76100D62005 /* AirCrashlytics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirCrashlytics.m; sourceTree = "<group>"; };
-		392939C01875C7C200D62005 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashRuntimeExtensions.h; path = ../FlashRuntimeExtensions.h; sourceTree = "<group>"; };
-		392939C21875C83B00D62005 /* FPANEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPANEUtils.h; sourceTree = "<group>"; };
-		392939C31875C83B00D62005 /* FPANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPANEUtils.m; sourceTree = "<group>"; };
-		5A30FDD51AB7524D00ED845F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		5A30FDD61AB7524D00ED845F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		1A9D5BED130F3F0D4E18E76B /* Pods-AirCrashlytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirCrashlytics.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirCrashlytics/Pods-AirCrashlytics.release.xcconfig"; sourceTree = "<group>"; };
+		37D6AD0925AE969991E4DB3F /* libPods-AirCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AirCrashlytics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A29C4F871F18F7F400B52762 /* libAirCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirCrashlytics.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A29C4F8A1F18F7F400B52762 /* AirCrashlytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirCrashlytics.h; sourceTree = "<group>"; };
+		A29C4F8B1F18F7F400B52762 /* AirCrashlytics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirCrashlytics.m; sourceTree = "<group>"; };
+		A29C4F931F18F8DF00B52762 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		A29C4F9B1F1919A000B52762 /* FPANEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPANEUtils.h; sourceTree = "<group>"; };
+		A29C4F9C1F1919A000B52762 /* FPANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPANEUtils.m; sourceTree = "<group>"; };
+		A29C4F9E1F192B8600B52762 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C20C0DAD2DB5480BCC6447E4 /* Pods-AirCrashlytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirCrashlytics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirCrashlytics/Pods-AirCrashlytics.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		392939931875C76100D62005 /* Frameworks */ = {
+		A29C4F841F18F7F400B52762 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3929399A1875C76100D62005 /* Foundation.framework in Frameworks */,
-				5A30FDD81AB7526B00ED845F /* Fabric.framework in Frameworks */,
-				5A30FDD71AB7526900ED845F /* Crashlytics.framework in Frameworks */,
+				B3A03ED33C6E753B72FDEFD9 /* libPods-AirCrashlytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3929398D1875C76100D62005 = {
+		3A2F21B186C6FA580A787E95 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5A30FDD41AB7524D00ED845F /* Frameworks */,
-				3929399B1875C76100D62005 /* AirCrashlytics */,
-				392939971875C76100D62005 /* Products */,
+				C20C0DAD2DB5480BCC6447E4 /* Pods-AirCrashlytics.debug.xcconfig */,
+				1A9D5BED130F3F0D4E18E76B /* Pods-AirCrashlytics.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5E2B97DE40510E1BC9084CBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37D6AD0925AE969991E4DB3F /* libPods-AirCrashlytics.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A29C4F7E1F18F7F400B52762 = {
+			isa = PBXGroup;
+			children = (
+				A29C4F9B1F1919A000B52762 /* FPANEUtils.h */,
+				A29C4F9C1F1919A000B52762 /* FPANEUtils.m */,
+				A29C4F931F18F8DF00B52762 /* FlashRuntimeExtensions.h */,
+				A29C4F891F18F7F400B52762 /* AirCrashlytics */,
+				A29C4F881F18F7F400B52762 /* Products */,
+				3A2F21B186C6FA580A787E95 /* Pods */,
+				5E2B97DE40510E1BC9084CBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		392939971875C76100D62005 /* Products */ = {
+		A29C4F881F18F7F400B52762 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				392939961875C76100D62005 /* libAirCrashlytics.a */,
+				A29C4F871F18F7F400B52762 /* libAirCrashlytics.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3929399B1875C76100D62005 /* AirCrashlytics */ = {
+		A29C4F891F18F7F400B52762 /* AirCrashlytics */ = {
 			isa = PBXGroup;
 			children = (
-				3929399E1875C76100D62005 /* AirCrashlytics.h */,
-				392939A01875C76100D62005 /* AirCrashlytics.m */,
-				3929399C1875C76100D62005 /* Supporting Files */,
+				A29C4F8A1F18F7F400B52762 /* AirCrashlytics.h */,
+				A29C4F8B1F18F7F400B52762 /* AirCrashlytics.m */,
+				A29C4F9E1F192B8600B52762 /* Constants.h */,
 			);
 			path = AirCrashlytics;
-			sourceTree = "<group>";
-		};
-		3929399C1875C76100D62005 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3929399D1875C76100D62005 /* AirCrashlytics-Prefix.pch */,
-				392939C01875C7C200D62005 /* FlashRuntimeExtensions.h */,
-				392939C21875C83B00D62005 /* FPANEUtils.h */,
-				392939C31875C83B00D62005 /* FPANEUtils.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5A30FDD41AB7524D00ED845F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				392939991875C76100D62005 /* Foundation.framework */,
-				5A30FDD51AB7524D00ED845F /* Crashlytics.framework */,
-				5A30FDD61AB7524D00ED845F /* Fabric.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		392939951875C76100D62005 /* AirCrashlytics */ = {
+		A29C4F861F18F7F400B52762 /* AirCrashlytics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 392939B91875C76100D62005 /* Build configuration list for PBXNativeTarget "AirCrashlytics" */;
+			buildConfigurationList = A29C4F901F18F7F400B52762 /* Build configuration list for PBXNativeTarget "AirCrashlytics" */;
 			buildPhases = (
-				392939921875C76100D62005 /* Sources */,
-				392939931875C76100D62005 /* Frameworks */,
-				392939941875C76100D62005 /* CopyFiles */,
+				66DBBAFFB807FA23A8B8EACA /* [CP] Check Pods Manifest.lock */,
+				A29C4F831F18F7F400B52762 /* Sources */,
+				A29C4F841F18F7F400B52762 /* Frameworks */,
+				A29C4F851F18F7F400B52762 /* CopyFiles */,
+				A17D6D2E2820F205C2526A8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,53 +118,94 @@
 			);
 			name = AirCrashlytics;
 			productName = AirCrashlytics;
-			productReference = 392939961875C76100D62005 /* libAirCrashlytics.a */;
+			productReference = A29C4F871F18F7F400B52762 /* libAirCrashlytics.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3929398E1875C76100D62005 /* Project object */ = {
+		A29C4F7F1F18F7F400B52762 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = FreshPlanet;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Mateo Kozomara";
+				TargetAttributes = {
+					A29C4F861F18F7F400B52762 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = HWKC8H7H6U;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
-			buildConfigurationList = 392939911875C76100D62005 /* Build configuration list for PBXProject "AirCrashlytics" */;
+			buildConfigurationList = A29C4F821F18F7F400B52762 /* Build configuration list for PBXProject "AirCrashlytics" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 3929398D1875C76100D62005;
-			productRefGroup = 392939971875C76100D62005 /* Products */;
+			mainGroup = A29C4F7E1F18F7F400B52762;
+			productRefGroup = A29C4F881F18F7F400B52762 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				392939951875C76100D62005 /* AirCrashlytics */,
+				A29C4F861F18F7F400B52762 /* AirCrashlytics */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66DBBAFFB807FA23A8B8EACA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A17D6D2E2820F205C2526A8E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AirCrashlytics/Pods-AirCrashlytics-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		392939921875C76100D62005 /* Sources */ = {
+		A29C4F831F18F7F400B52762 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				392939C41875C83B00D62005 /* FPANEUtils.m in Sources */,
-				392939A11875C76100D62005 /* AirCrashlytics.m in Sources */,
+				A29C4F9D1F1919A000B52762 /* FPANEUtils.m in Sources */,
+				A29C4F8C1F18F7F400B52762 /* AirCrashlytics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		392939B71875C76100D62005 /* Debug */ = {
+		A29C4F8E1F18F7F400B52762 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -174,37 +213,47 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		392939B81875C76100D62005 /* Release */ = {
+		A29C4F8F1F18F7F400B52762 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -212,60 +261,51 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		392939BA1875C76100D62005 /* Debug */ = {
+		A29C4F911F18F7F400B52762 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C20C0DAD2DB5480BCC6447E4 /* Pods-AirCrashlytics.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				DSTROOT = /tmp/AirCrashlytics.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirCrashlytics/AirCrashlytics-Prefix.pch";
-				ONLY_ACTIVE_ARCH = NO;
+				DEVELOPMENT_TEAM = HWKC8H7H6U;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		392939BB1875C76100D62005 /* Release */ = {
+		A29C4F921F18F7F400B52762 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A9D5BED130F3F0D4E18E76B /* Pods-AirCrashlytics.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				DSTROOT = /tmp/AirCrashlytics.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirCrashlytics/AirCrashlytics-Prefix.pch";
+				DEVELOPMENT_TEAM = HWKC8H7H6U;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -275,25 +315,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		392939911875C76100D62005 /* Build configuration list for PBXProject "AirCrashlytics" */ = {
+		A29C4F821F18F7F400B52762 /* Build configuration list for PBXProject "AirCrashlytics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				392939B71875C76100D62005 /* Debug */,
-				392939B81875C76100D62005 /* Release */,
+				A29C4F8E1F18F7F400B52762 /* Debug */,
+				A29C4F8F1F18F7F400B52762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		392939B91875C76100D62005 /* Build configuration list for PBXNativeTarget "AirCrashlytics" */ = {
+		A29C4F901F18F7F400B52762 /* Build configuration list for PBXNativeTarget "AirCrashlytics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				392939BA1875C76100D62005 /* Debug */,
-				392939BB1875C76100D62005 /* Release */,
+				A29C4F911F18F7F400B52762 /* Debug */,
+				A29C4F921F18F7F400B52762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3929398E1875C76100D62005 /* Project object */;
+	rootObject = A29C4F7F1F18F7F400B52762 /* Project object */;
 }

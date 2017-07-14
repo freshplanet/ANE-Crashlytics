@@ -16,8 +16,8 @@
 //  
 //////////////////////////////////////////////////////////////////////////////////////-->
 
-<extension xmlns="http://ns.adobe.com/air/extension/17.0">
-  <id>com.freshplanet.AirCrashlytics</id>
+<extension xmlns="http://ns.adobe.com/air/extension/20.0">
+  <id>com.freshplanet.ane.AirCrashlytics</id>
   <versionNumber>1.0</versionNumber>
   <platforms>
 
@@ -32,8 +32,8 @@
     <platform name="Android-ARM"> 
         <applicationDeployment> 
             <nativeLibrary>libAirCrashlytics.jar</nativeLibrary> 
-            <initializer>com.freshplanet.ane.AirCrashlytics.Extension</initializer> 
-            <finalizer>com.freshplanet.ane.AirCrashlytics.Extension</finalizer> 
+            <initializer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</initializer>
+            <finalizer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</finalizer>
         </applicationDeployment> 
     </platform> 
     

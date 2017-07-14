@@ -1,107 +1,125 @@
-//////////////////////////////////////////////////////////////////////////////////////
-//
-//  Copyright 2012 Freshplanet (http://freshplanet.com | opensource@freshplanet.com)
-//  
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
-//  
-//    http://www.apache.org/licenses/LICENSE-2.0
-//  
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
-//  
-//////////////////////////////////////////////////////////////////////////////////////
+/*
+ * Copyright 2017 FreshPlanet
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-package com.freshplanet.ane.AirCrashlytics
-{
+package com.freshplanet.ane.AirCrashlytics {
+	import com.freshplanet.ane.AirCrashlytics.events.AirCrashlyticsEvent;
+
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
 	import flash.events.StatusEvent;
 	import flash.external.ExtensionContext;
 	import flash.system.Capabilities;
 
-	public class AirCrashlytics
-	{
+	/**
+	 *   The AirCrashlytics class provides support for Crashlytics SDK
+	 *
+	 *   The AirCrashlytics object is a singleton.
+	 *   To get the single AirCrashlytics object, use the static AirCrashlytics.instance property.
+	 *   Do not call the class constructor by calling new AirCrashlytics().
+	 */
+	public class AirCrashlytics extends EventDispatcher {
 		// --------------------------------------------------------------------------------------//
 		//																						 //
 		// 									   PUBLIC API										 //
 		// 																						 //
 		// --------------------------------------------------------------------------------------//
 		
-		/** Crashlytics is supported on iOS and Android devices. */
-		public static function get isSupported():Boolean
-		{
+		/**
+		 * Is AirCrashlytics supported on the current platform
+		 */
+		public static function get isSupported():Boolean {
 			return Capabilities.manufacturer.indexOf("iOS") > -1 || Capabilities.manufacturer.indexOf("Android") > -1;
 		}
-		
-		public static function start():void
-		{
-			call("start");
+
+		/**
+		 * AirCrashlytics instance
+		 */
+		static public function get instance():AirCrashlytics {
+			return _instance != null ? _instance : new AirCrashlytics()
+		}
+
+		/**
+		 * Start Crashlytics
+		 */
+        public function start(debugMode:Boolean):void {
+			callNative("AirCrashlyticsStart", debugMode);
 
 			log("Crashlytics " + version + " initialized with API key " + apiKey);
 		}
 
-		public static function didDetectCrashInPreviousExecution(callback:Function):void
-		{
-			_context.addEventListener(StatusEvent.STATUS, function(e:StatusEvent){
-				callback(e.code, e.level);
-			});
-		}
-
-
-		public static function crash():void
-		{
-			var worked:Boolean = call("crash");
+		/**
+		 * Start Crashlytics
+		 */
+		public function crash():void {
+			var worked:Boolean = callNative("AirCrashlyticsCrash");
 
 			if (!worked && Capabilities.manufacturer.indexOf("Android") > -1)
 			{
 				log("In order to force a crash on Android, you need to declare the following activity in your manifest: com.freshplanet.ane.AirCrashlytics.activities.CrashActivity");
 			}
 		}
-		
-		public static function get apiKey():String
-		{
-			return call("getApiKey");
+
+		/**
+		 * Get API key that was used
+		 */
+		public function get apiKey():String {
+			return callNative("AirCrashlyticsGetApiKey");
 		}
-		
-		public static function get version():String
-		{
-			return call("getVersion");
+
+		/**
+		 * Get Crashlytics version
+		 */
+		public function get version():String {
+			return callNative("AirCrashlyticsGetVersion");
 		}
-		
-		public static function set debugMode(value:Boolean):void
-		{
-			call("setDebugMode", value);
-		}
-		
-		public static function set userIdentifier(value:String):void
-		{
-			if (value)
-			{
-				call("setUserIdentifier", value);
+
+		/**
+		 * User defined properties - set user identifier
+		 */
+		public function set userIdentifier(value:String):void {
+			if (value) {
+				callNative("AirCrashlyticsSetUserIdentifier", value);
 			}
 		}
-		
-		public static function setBool(key:String, value:Boolean):void
-		{
-			call("setBool", key, value);
+
+		/**
+		 * User defined properties - set boolean value
+		 */
+		public function setBool(key:String, value:Boolean):void {
+			callNative("AirCrashlyticsSetBool", key, value);
 		}
-		
-		public static function setInt(key:String, value:int):void
-		{
-			call("setInt", key, value);
+
+		/**
+		 * User defined properties - set integer value
+		 */
+		public function setInt(key:String, value:int):void {
+			callNative("AirCrashlyticsSetInt", key, value);
 		}
-		
-		public static function setFloat(key:String, value:Number):void
-		{
-			call("setFloat", key, value);
+
+		/**
+		 * User defined properties - set float value
+		 */
+		public function setFloat(key:String, value:Number):void {
+			callNative("AirCrashlyticsSetFloat", key, value);
 		}
-		
-		public static function setString(key:String, value:String):void
-		{
-			call("setString", key, value);
+
+		/**
+		 * User defined properties - set string value
+		 */
+		public function setString(key:String, value:String):void {
+			callNative("AirCrashlyticsSetString", key, value);
 		}
 		
 		// --------------------------------------------------------------------------------------//
@@ -109,13 +127,50 @@ package com.freshplanet.ane.AirCrashlytics
 		// 									 	PRIVATE API										 //
 		// 																						 //
 		// --------------------------------------------------------------------------------------//
-		
-		private static const EXTENSION_ID : String = "com.freshplanet.AirCrashlytics";
-		
-		private static var _context : ExtensionContext = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
-		
-		private static function call(...args):*
-		{
+
+		private static const EXTENSION_ID : String = "com.freshplanet.ane.AirCrashlytics";
+		private static var _instance:AirCrashlytics = null;
+		private static var _context : ExtensionContext = null;
+
+		/**
+		 * "private" singleton constructor
+		 */
+		public function AirCrashlytics() {
+
+			super();
+
+			if (_instance)
+				throw Error("this is a singleton, use .instance, do not call the constructor directly");
+
+			_instance = this;
+			_context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
+
+			if (!_context)
+				trace("ERROR", "Extension context is null. Please check if extension.xml is setup correctly.");
+			else
+				_context.addEventListener(StatusEvent.STATUS, _onStatusEvent);
+		}
+
+
+		/**
+		 * Status event listener
+		 * @param e
+		 */
+		private function _onStatusEvent(e:StatusEvent):void {
+			if(e.code == AirCrashlyticsEvent.CRASH_DETECTED_DURING_PREVIOUS_EXECUTION) {
+				var crashData:Object;
+				if(Capabilities.manufacturer.indexOf("iOS") > -1)
+					crashData = JSON.parse(e.level);
+				else
+					crashData = e.level;
+				this.dispatchEvent(new AirCrashlyticsEvent(AirCrashlyticsEvent.CRASH_DETECTED_DURING_PREVIOUS_EXECUTION, crashData));
+			}
+			else {
+				this.dispatchEvent(new Event(e.code));
+			}
+		}
+
+		private static function callNative(...args):* {
 			if (!isSupported) return null;
 			
 			if (!_context) throw new Error("Extension context is null. Please check if extension.xml is setup correctly.");
