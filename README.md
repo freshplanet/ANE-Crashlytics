@@ -20,8 +20,20 @@ You will then need to add your API key in your application descriptor twice, onc
     
     <InfoAdditions><![CDATA[
 
-        <key>CrashlyticsAPIKey</key>
-        <string>{YOUR_API_KEY}</string>
+       <key>Fabric</key>
+       <dict>
+         <key>APIKey</key>
+         <string>YOUR-API-KEY</string>
+         <key>Kits</key>
+         <array>
+           <dict>
+             <key>KitInfo</key>
+             <dict/>
+             <key>KitName</key>
+             <string>Crashlytics</string>
+           </dict>
+         </array>
+       </dict>
 
     ]]></InfoAdditions>
 
@@ -63,26 +75,26 @@ Usage
 
 ```actionscript
 // Start Crashlytics
-AirCrashlytics.start();
+AirCrashlytics.instance.start();
 
 // Force a crash (iOS only)
-AirCrashlytics.crash();
+AirCrashlytics.instance.crash();
 
 // Set a user identifier
-AirCrashlytics.userIdentifier = "myUserIdentifier";
+AirCrashlytics.instance.userIdentifier = "myUserIdentifier";
 
 // Set some custom keys
-AirCrashlytics.setBool("myBoolKey", true);
-AirCrashlytics.setInt("myIntKey", 10);
-AirCrashlytics.setFloat("myFloatKey", 2.5);
-AirCrashlytics.setString("myStringKey", "myStringValue");
+AirCrashlytics.instance.setBool("myBoolKey", true);
+AirCrashlytics.instance.setInt("myIntKey", 10);
+AirCrashlytics.instance.setFloat("myFloatKey", 2.5);
+AirCrashlytics.instance.setString("myStringKey", "myStringValue");
 ```
 
-In order for crash reports to appear in your dashboard with iOS, you need to execute *tool/run.sh* after building your AIR application. You need to provide the path to your .dSYM file, so if you are compiling in release mode with Flash Builder be sure to check "Keep bin-release-temp folder" otherwise the .dSYM file will be deleted by Flash Builder:
+To receive symoblicated reports in your dashboard with iOS, you need to execute Fabric/upload-symbols after building your AIR application. You need to provide the path to your .dSYM file, so if you are compiling in release mode with Flash Builder be sure to check "Keep bin-release-temp folder" otherwise the .dSYM file will be deleted by Flash Builder:
 
 ```bash
 cd /path/to/the/ane
-tools/run.sh CRASHLYTICS_API_KEY PATH_TO_IPA PATH_TO_DSYM
+.ios/Pods/Fabric/upload-symbols -a YOUR-API-KEY -p ios /path/to/your/dsym
 ```
 
 Notes:
@@ -110,7 +122,7 @@ ant
 Authors
 ------
 
-This ANE has been written by [Alexis Taugeron](http://alexistaugeron.com). It belongs to [FreshPlanet Inc.](http://freshplanet.com) and is distributed under the [Apache Licence, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+This ANE has been written by [Alexis Taugeron](http://alexistaugeron.com) and [Mateo Kozomara](mateo.kozomara@gmail.com). It belongs to [FreshPlanet Inc.](http://freshplanet.com) and is distributed under the [Apache Licence, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 
 Join the FreshPlanet team - GAME DEVELOPMENT in NYC
