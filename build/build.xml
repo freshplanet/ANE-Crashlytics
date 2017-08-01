@@ -37,13 +37,9 @@
         </exec>
 
         <!-- copy the libs and resources to the base temp ios directory -->
-        <copy todir="temp/ios" overwrite="true" includeEmptyDirs="false" flatten="true">
-            <fileset dir="../ios/">
-                <include name="build/Release-iphoneos/**/*"/>
+        <copy todir="temp/ios" overwrite="true" includeEmptyDirs="false" flatten="false">
+            <fileset dir="../ios/build/Release-iphoneos/">
                 <exclude name="**/*Pods-${name}*"/>
-                <exclude name="**/*.bundle/"/>
-                <exclude name="**/*.nib/"/>
-                <exclude name="**/*.h"/>
             </fileset>
         </copy>
 
@@ -51,8 +47,6 @@
         <for param="path">
             <path>
                 <dirset dir="../ios/">
-                    <include name="build/Release-iphoneos/**/*.bundle"/>
-                    <include name="build/Release-iphoneos/**/*.nib"/>
                     <include name="**/*.framework"/>
                 </dirset>
             </path>
@@ -110,7 +104,7 @@
         </copy>
 
         <!-- Copy resource files -->
-        <copy todir="temp/android/res/">
+        <copy todir="temp/android/res/" failonerror="false">
              <fileset dir="../android/res"/>
         </copy>
 
