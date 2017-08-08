@@ -20,7 +20,7 @@
 
 @interface AirCrashlytics ()
     @property (nonatomic, readonly) FREContext context;
-    @end
+@end
 
 @implementation AirCrashlytics
     
