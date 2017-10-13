@@ -35,28 +35,7 @@
     
     return self;
 }
-    
-//- (void)crashlyticsDidDetectReportForLastExecution:(CLSReport *)report completionHandler:(void (^)(BOOL submit))completionHandler {
-//    
-//    NSString* eventTime = [NSString stringWithFormat:@"%f", [report.crashedOnDate timeIntervalSince1970]];
-//    NSString* sessionId = report.customKeys[@"sessionId"];
-//    NSString* userId = report.customKeys[@"userId"];
-//    if (sessionId == nil) {
-//        sessionId = @"";
-//    }
-//    if (userId == nil) {
-//        userId = @"";
-//    }
-//    
-//           // You can choose to pass more info about the crash in the json string
-//    NSString* stringInfo = [NSString stringWithFormat: @"{\"crashId\" : \"%@\", \"eventTime\" : \"%@\", \"sessionId\" : \"%@\", \"userId\" : \"%@\"}",
-//                                report.identifier, eventTime, sessionId, userId];
-//        
-//    [self sendEvent:kAirCrashlyticsEvent_CRASH_DETECTED_DURING_PREVIOUS_EXECUTION level:stringInfo];
-//    
-//    
-//    completionHandler(YES);
-//}
+
     
 -(void) crashlyticsDidDetectReportForLastExecution:(CLSReport *)report {
     NSString* eventTime = [NSString stringWithFormat:@"%f", [report.crashedOnDate timeIntervalSince1970]];
@@ -106,10 +85,10 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsStart) {
     AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
     
     if (!controller)
-        return FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
     
     @try {
-        BOOL debugMode = FPANE_FREObjectToBool(argv[0]);
+        BOOL debugMode = AirCrashlytics_FPANE_FREObjectToBool(argv[0]);
         [[Fabric sharedSDK] setDebug: debugMode];
         [[Crashlytics sharedInstance] setDelegate:controller];
         [Fabric with:@[[Crashlytics class]]];
@@ -124,19 +103,19 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsStart) {
 DEFINE_ANE_FUNCTION(AirCrashlyticsCrash) {
     
     [[Crashlytics sharedInstance] crash];
-    return FPANE_BOOLToFREObject(YES);
+    return AirCrashlytics_FPANE_BOOLToFREObject(YES);
 }
 
 DEFINE_ANE_FUNCTION(AirCrashlyticsGetApiKey) {
     
     NSString *apiKey = [[Crashlytics sharedInstance] APIKey];
-    return FPANE_NSStringToFREObject(apiKey);
+    return AirCrashlytics_FPANE_NSStringToFREObject(apiKey);
 }
 
 DEFINE_ANE_FUNCTION(AirCrashlyticsGetVersion) {
     
     NSString *version = [[Crashlytics sharedInstance] version];
-    return FPANE_NSStringToFREObject(version);
+    return AirCrashlytics_FPANE_NSStringToFREObject(version);
 }
 
 DEFINE_ANE_FUNCTION(AirCrashlyticsSetUserIdentifier) {
@@ -144,10 +123,10 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsSetUserIdentifier) {
     AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
     
     if (!controller)
-        return FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
     
     @try {
-        NSString *userIdentifier = FPANE_FREObjectToNSString(argv[0]);
+        NSString *userIdentifier = AirCrashlytics_FPANE_FREObjectToNSString(argv[0]);
         [[Crashlytics sharedInstance] setUserIdentifier:userIdentifier];
     }
     @catch (NSException *exception) {
@@ -161,11 +140,11 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsSetBool) {
     AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
     
     if (!controller)
-        return FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
     
     @try {
-        NSString *key = FPANE_FREObjectToNSString(argv[0]);
-        BOOL value = FPANE_FREObjectToBool(argv[1]);
+        NSString *key = AirCrashlytics_FPANE_FREObjectToNSString(argv[0]);
+        BOOL value = AirCrashlytics_FPANE_FREObjectToBool(argv[1]);
     
         [[Crashlytics sharedInstance] setBoolValue:value forKey:key];
     }
@@ -180,11 +159,11 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsSetInt) {
     AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
     
     if (!controller)
-        return FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
     
     @try {
-        NSString *key = FPANE_FREObjectToNSString(argv[0]);
-        NSInteger value = FPANE_FREObjectToInt(argv[1]);
+        NSString *key = AirCrashlytics_FPANE_FREObjectToNSString(argv[0]);
+        NSInteger value = AirCrashlytics_FPANE_FREObjectToInt(argv[1]);
     
         [[Crashlytics sharedInstance] setIntValue:(int)value forKey:key];
     }
@@ -199,11 +178,11 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsSetFloat) {
     AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
     
     if (!controller)
-        return FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
     
     @try {
-        NSString *key = FPANE_FREObjectToNSString(argv[0]);
-        double value = FPANE_FREObjectToDouble(argv[1]);
+        NSString *key = AirCrashlytics_FPANE_FREObjectToNSString(argv[0]);
+        double value = AirCrashlytics_FPANE_FREObjectToDouble(argv[1]);
     
         [[Crashlytics sharedInstance] setFloatValue:(float)value forKey:key];
     }
@@ -218,11 +197,11 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsSetString) {
     AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
     
     if (!controller)
-        return FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
     
     @try {
-        NSString *key = FPANE_FREObjectToNSString(argv[0]);
-        NSString *value = FPANE_FREObjectToNSString(argv[1]);
+        NSString *key = AirCrashlytics_FPANE_FREObjectToNSString(argv[0]);
+        NSString *value = AirCrashlytics_FPANE_FREObjectToNSString(argv[1]);
         [[Crashlytics sharedInstance] setObjectValue:value forKey:key];
     }
     @catch (NSException *exception) {
