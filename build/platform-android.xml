@@ -1,9 +1,9 @@
 <platform xmlns="http://ns.adobe.com/air/extension/22.0">
     <packagedDependencies>
-        <packagedDependency>answers-1.3.13.jar</packagedDependency>
-        <packagedDependency>beta-1.2.5.jar</packagedDependency>
-        <packagedDependency>crashlytics-2.6.8.jar</packagedDependency>
-        <packagedDependency>crashlytics-core-2.3.17.jar</packagedDependency>
-        <packagedDependency>fabric-1.3.17.jar</packagedDependency>
+        <packagedDependency>answers-1.4.1.jar</packagedDependency>
+        <packagedDependency>beta-1.2.7.jar</packagedDependency>
+        <packagedDependency>crashlytics-2.8.0.jar</packagedDependency>
+        <packagedDependency>crashlytics-core-2.5.0.jar</packagedDependency>
+        <packagedDependency>fabric-1.4.1.jar</packagedDependency>
     </packagedDependencies> 
 </platform>
