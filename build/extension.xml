@@ -35,8 +35,23 @@
             <initializer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</initializer>
             <finalizer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</finalizer>
         </applicationDeployment> 
-    </platform> 
-    
+    </platform>
+
+    <platform name="Android-ARM64">
+        <applicationDeployment>
+            <nativeLibrary>libAirCrashlytics.jar</nativeLibrary>
+            <initializer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</initializer>
+            <finalizer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</finalizer>
+        </applicationDeployment>
+    </platform>
+
+    <platform name="Android-x86">
+        <applicationDeployment>
+            <nativeLibrary>libAirCrashlytics.jar</nativeLibrary>
+            <initializer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</initializer>
+            <finalizer>com.freshplanet.ane.AirCrashlytics.AirCrashlyticsExtension</finalizer>
+        </applicationDeployment>
+    </platform>
     <platform name="default"> 
         <applicationDeployment/> 
     </platform> 
