@@ -63,53 +63,76 @@
     </target>
 
     <!-- Android -->
-    <target name="android" description="Build Android Library with debugging disabled">
-        <property name="ANDROID_DEBUG" value="false"/>
-        <antcall target="android-build"/>
-    </target>
-    <target name="android-debug" description="Build Android Library with debugging enabled">
-        <property name="ANDROID_DEBUG" value="true"/>
-        <antcall target="android-build"/>
-    </target>
-    <target name="android-build" description="Build Android Library">
-        
-        <property name="android.platform.home" value="${android.sdk.home}/platforms/android-${android.platform}"/>
+    <target name="android" description="Build Android Library">
 
-        <!-- make the build directory for the java code -->
-        <mkdir dir="temp/android/build/"/>
+        <!-- paths -->
+        <property name="build.intermediates" value="../android/lib/build/intermediates"/>
+        <property name="build.release" value="${build.intermediates}/packaged-classes/release"/>
+
+        <!-- make the build directory -->
+        <mkdir dir="temp/android"/>
+
+        <exec executable="/usr/libexec/java_home" outputproperty="java.home">
+            <!-- <arg line="-v 1.8" /> -->
+        </exec>
+
+        <!-- clean the build -->
+        <exec executable="./gradlew" dir="../android">
+            <env key="JAVA_HOME" path="${java.home}"/>
+            <env key="ANDROID_HOME" path="${android.sdk.home}"/>
+            <arg line="clean"/>
+        </exec>
 
         <!-- compile the java code -->
-        <javac destdir="temp/android/build/" source="1.7" target="1.7" includeantruntime="false" debug="${ANDROID_DEBUG}">
-            <src path="../android/src"/>
-            <classpath>
-                <pathelement location="${android.platform.home}/android.jar"/>
-                <pathelement location="${air.sdk.home}/lib/android/FlashRuntimeExtensions.jar"/>
-                <pathelement location="../android/libs/answers-1.4.1.jar"/>
-                <pathelement location="../android/libs/beta-1.2.7.jar"/>
-                <pathelement location="../android/libs/crashlytics-2.8.0.jar"/>
-                <pathelement location="../android/libs/crashlytics-core-2.5.0.jar"/>
-                <pathelement location="../android/libs/fabric-1.4.1.jar"/>
-            </classpath>
-        </javac>
+        <exec executable="./gradlew" dir="../android">
+            <env key="JAVA_HOME" path="${java.home}"/>
+            <env key="ANDROID_HOME" path="${android.sdk.home}"/>
+            <arg line=":lib:assembleRelease"/>
+        </exec>
 
-        <!-- make the jar -->
-        <jar basedir="temp/android/build/" destfile="temp/android/lib${name}.jar"/>
+        <!-- get the jar -->
+        <copy file="${build.release}/classes.jar" tofile="temp/android/lib${name}.jar"/>
 
-        <!-- remove the build classes -->
-        <delete dir="temp/android/build/"/>
+        <!-- Copy dependencies into temp folder -->
+        <exec executable="./gradlew" dir="../android">
+            <env key="JAVA_HOME" path="${java.home}"/>
+            <env key="ANDROID_HOME" path="${android.sdk.home}"/>
+            <arg line="copyDependencies"/>
+        </exec>
 
-        <!-- Copy over the required libs -->
-        <copy todir="temp/android/">
-            <fileset dir="../android/libs"/>
-        </copy>
+        <!-- Extract aar files -->
+        <foreach target="unzipAAR" param="aarFile">
+            <fileset dir="../android/lib/libs">
+                <include name="*.aar"/>
+            </fileset>
+        </foreach>
 
-        <!-- Copy resource files -->
-        <copy todir="temp/android/res/" failonerror="false">
-             <fileset dir="../android/res"/>
+        <!-- Copy to build folder -->
+        <copy todir="temp/android">
+            <fileset dir="../android/lib/libs" excludes="FlashRuntimeExtensions.jar, runtimeClasses.jar">
+                <include name="*.jar"/>
+            </fileset>
         </copy>
 
         <!-- Copy over required resources -->
+        <copy todir="temp/android/res/" failonerror="false">
+            <fileset dir="../android/lib/src/main/res"/>
+        </copy>
 
+        <delete dir="../android/lib/dependencies"/>
+
+    </target>
+
+    <target name="unzipAAR">
+        <basename property="aarFileName" file="${aarFile}"
+                  suffix=".aar"/>
+        <unzip src="${aarFile}" dest="../android/lib/dependencies/${aarFileName}" overwrite="true"/>
+        <if>
+            <available file="../android/lib/dependencies/${aarFileName}/classes.jar"/>
+            <then>
+                <move file="../android/lib/dependencies/${aarFileName}/classes.jar" tofile="../android/lib/dependencies/${aarFileName}.jar"/>
+            </then>
+        </if>
     </target>
 
     <!-- Actionscript -->
@@ -152,6 +175,8 @@
             <arg line="-swc swc/${name}.swc"/>
             <arg line="-platform iPhone-ARM -platformoptions ../platform-ios.xml -C ios/ . "/>
             <arg line="-platform Android-ARM -platformoptions ../platform-android.xml -C android/ ."/>
+            <arg line="-platform Android-ARM64 -platformoptions ../platform-android.xml -C android/ ."/>
+            <arg line="-platform Android-x86 -platformoptions ../platform-android.xml -C android/ ."/>
             <arg line="-platform default -C default/ ."/>
         </exec>
 
