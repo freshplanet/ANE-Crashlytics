@@ -102,21 +102,21 @@
 
         <!-- Extract aar files -->
         <foreach target="unzipAAR" param="aarFile">
-            <fileset dir="../android/lib/libs">
+            <fileset dir="../android/lib/dependencies">
                 <include name="*.aar"/>
             </fileset>
         </foreach>
 
         <!-- Copy to build folder -->
         <copy todir="temp/android">
-            <fileset dir="../android/lib/libs" excludes="FlashRuntimeExtensions.jar, runtimeClasses.jar">
+            <fileset dir="../android/lib/dependencies" excludes="FlashRuntimeExtensions.jar, runtimeClasses.jar">
                 <include name="*.jar"/>
             </fileset>
         </copy>
 
         <!-- Copy over required resources -->
-        <copy todir="temp/android/res/" failonerror="false">
-            <fileset dir="../android/lib/src/main/res"/>
+        <copy todir="temp/android/crash-res" failonerror="true">
+            <fileset dir="${build.intermediates}/packaged_res/release"/>
         </copy>
 
         <delete dir="../android/lib/dependencies"/>
