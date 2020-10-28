@@ -17,7 +17,7 @@ package com.freshplanet.ane.AirCrashlytics.functions;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
-import com.crashlytics.android.Crashlytics;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class SetBoolFunction extends BaseFunction {
 	public FREObject call(FREContext context, FREObject[] args) {
@@ -25,7 +25,7 @@ public class SetBoolFunction extends BaseFunction {
 		
 		String key = getStringFromFREObject(args[0]);
 		Boolean value = getBooleanFromFREObject(args[1]);
-		Crashlytics.setBool(key, value);
+		FirebaseCrashlytics.getInstance().setCustomKey(key, value);
 		
 		return null;
 	}

@@ -17,15 +17,14 @@ package com.freshplanet.ane.AirCrashlytics.functions;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
-import com.crashlytics.android.Crashlytics;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class SetIntFunction extends BaseFunction {
 	public FREObject call(FREContext context, FREObject[] args) {
 		super.call(context, args);
-		
 		String key = getStringFromFREObject(args[0]);
 		int value = getIntFromFREObject(args[1]);
-		Crashlytics.setInt(key, value);
+		FirebaseCrashlytics.getInstance().setCustomKey(key, value);
 		
 		return null;
 	}

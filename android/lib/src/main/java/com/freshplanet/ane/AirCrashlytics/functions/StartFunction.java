@@ -16,13 +16,11 @@
 package com.freshplanet.ane.AirCrashlytics.functions;
 
 
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
-import com.crashlytics.android.Crashlytics;
-import io.fabric.sdk.android.Fabric;
-import com.crashlytics.android.core.CrashlyticsListener;
-import com.crashlytics.android.core.CrashlyticsCore;
 import com.freshplanet.ane.AirCrashlytics.Constants;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class StartFunction extends BaseFunction {
 	public FREObject call(FREContext context, FREObject[] args) {
@@ -30,25 +28,13 @@ public class StartFunction extends BaseFunction {
 
         final FREContext cont = context;
 
-        final CrashlyticsListener crashlyticsListener = new CrashlyticsListener() {
-            @Override
-            public void crashlyticsDidDetectCrashDuringPreviousExecution(){
-                cont.dispatchStatusEventAsync(Constants.AirCrashlyticsEvent_CRASH_DETECTED_DURING_PREVIOUS_EXECUTION, "No crash data");
-            }
-        };
-        
-        boolean debugMode = getBooleanFromFREObject(args[0]);
-        final CrashlyticsCore crashlyticsCore = new CrashlyticsCore
-                .Builder()
-                .listener(crashlyticsListener)
-                .build();
+		FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
+		FirebaseCrashlytics.getInstance().log("start ane");
+        if(FirebaseCrashlytics.getInstance().didCrashOnPreviousExecution()) {
+			cont.dispatchStatusEventAsync(Constants.AirCrashlyticsEvent_CRASH_DETECTED_DURING_PREVIOUS_EXECUTION, "No crash data");
+		}
 
-        final Crashlytics crashlytics = new Crashlytics.Builder().core(crashlyticsCore).build();
-        final Fabric fabric = new Fabric.Builder(context.getActivity().getApplicationContext())
-                .kits(crashlytics)
-                .debuggable(debugMode)
-                .build();
-        Fabric.with(fabric);
+
 
 		return null;
 	}

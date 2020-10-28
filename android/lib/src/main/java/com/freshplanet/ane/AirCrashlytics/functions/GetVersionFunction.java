@@ -17,14 +17,15 @@ package com.freshplanet.ane.AirCrashlytics.functions;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
-import com.crashlytics.android.Crashlytics;
+import com.google.firebase.crashlytics.BuildConfig;
 
 public class GetVersionFunction extends BaseFunction {
 	public FREObject call(FREContext context, FREObject[] args) {
 		super.call(context, args);
 		
 		try {
-			return FREObject.newObject(Crashlytics.getInstance().getVersion());
+
+			return FREObject.newObject(BuildConfig.VERSION_NAME);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
