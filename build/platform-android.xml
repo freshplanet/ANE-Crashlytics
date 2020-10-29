@@ -14,16 +14,18 @@
 <!--        <packagedDependency>documentfile-1.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>drawerlayout-1.0.0.jar</packagedDependency>-->
 
-        <packagedDependency>firebase-analytics-17.1.0.jar</packagedDependency>
-        <packagedDependency>firebase-common-19.3.0.jar</packagedDependency>
-        <packagedDependency>firebase-components-16.0.0.jar</packagedDependency>
+<!--        <packagedDependency>firebase-analytics-17.1.0.jar</packagedDependency>-->
+<!--        <packagedDependency>firebase-common-19.3.0.jar</packagedDependency>-->
+<!--        <packagedDependency>firebase-components-16.0.0.jar</packagedDependency>-->
+
         <packagedDependency>firebase-crashlytics-17.1.0.jar</packagedDependency>
-        <packagedDependency>firebase-encoders-json-16.1.0.jar</packagedDependency>
-        <packagedDependency>firebase-iid-20.1.5.jar</packagedDependency>
-        <packagedDependency>firebase-iid-interop-17.0.0.jar</packagedDependency>
-        <packagedDependency>firebase-installations-16.2.1.jar</packagedDependency>
-        <packagedDependency>firebase-installations-interop-16.0.0.jar</packagedDependency>
-        <packagedDependency>firebase-measurement-connector-18.0.0.jar</packagedDependency>
+
+<!--        <packagedDependency>firebase-encoders-json-16.1.0.jar</packagedDependency>-->
+<!--        <packagedDependency>firebase-iid-20.1.5.jar</packagedDependency>-->
+<!--        <packagedDependency>firebase-iid-interop-17.0.0.jar</packagedDependency>-->
+<!--        <packagedDependency>firebase-installations-16.2.1.jar</packagedDependency>-->
+<!--        <packagedDependency>firebase-installations-interop-16.0.0.jar</packagedDependency>-->
+<!--        <packagedDependency>firebase-measurement-connector-18.0.0.jar</packagedDependency>-->
 
 <!--        <packagedDependency>fragment-1.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>interpolator-1.0.0.jar</packagedDependency>-->
@@ -61,7 +63,7 @@
     </packagedDependencies>
     <packagedResources>
         <packagedResource>
-            <packageName>com.freshplanet.ane.AirCrashlytics</packageName>
+            <packageName>AirCrashlytics</packageName>
             <folderName>crash-res</folderName>
         </packagedResource>
 <!--        <packagedResource>-->
