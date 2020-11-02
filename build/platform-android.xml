@@ -14,10 +14,10 @@
 <!--        <packagedDependency>documentfile-1.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>drawerlayout-1.0.0.jar</packagedDependency>-->
 
-<!--        <packagedDependency>firebase-analytics-17.1.0.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-common-19.3.0.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-components-16.0.0.jar</packagedDependency>-->
 
+        <packagedDependency>firebase-analytics-17.1.0.jar</packagedDependency>
         <packagedDependency>firebase-crashlytics-17.1.0.jar</packagedDependency>
 
 <!--        <packagedDependency>firebase-encoders-json-16.1.0.jar</packagedDependency>-->
@@ -63,7 +63,7 @@
     </packagedDependencies>
     <packagedResources>
         <packagedResource>
-            <packageName>AirCrashlytics</packageName>
+            <packageName>com.freshplanet.ane.AirCrashlytics</packageName>
             <folderName>crash-res</folderName>
         </packagedResource>
 <!--        <packagedResource>-->
