@@ -14,11 +14,10 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "Crashlytics/Crashlytics.h"
 #import "FPANEUtils.h"
 
 
-@interface AirCrashlytics : NSObject <CrashlyticsDelegate> {
+@interface AirCrashlytics : NSObject  {
     FREContext _context;
 }
     

@@ -1,9 +1,22 @@
 <platform xmlns="http://ns.adobe.com/air/extension/22.0">
     <sdkVersion>10.0</sdkVersion>
     <linkerOptions>
+        <option>-lclang_rt.ios</option>
+        <option>-ObjC</option>
     </linkerOptions> 
     <packagedDependencies>
-        <packagedDependency>Fabric.framework</packagedDependency>
-        <packagedDependency>Crashlytics.framework</packagedDependency>
+            <packagedDependency>FirebaseCore/libFirebaseCore.a</packagedDependency>
+            <packagedDependency>FirebaseCoreDiagnostics/libFirebaseCoreDiagnostics.a</packagedDependency>
+            <packagedDependency>FirebaseInstallations/libFirebaseInstallations.a</packagedDependency>
+            <packagedDependency>GoogleDataTransport/libGoogleDataTransport.a</packagedDependency>
+            <packagedDependency>FIRAnalyticsConnector.framework</packagedDependency>
+            <packagedDependency>FirebaseAnalytics.framework</packagedDependency>
+            <packagedDependency>FirebaseCrashlytics/libFirebaseCrashlytics.a</packagedDependency>
+
+
+<!--            <packagedDependency>PromisesObjC/libPromisesObjC.a</packagedDependency>-->
+<!--            <packagedDependency>GoogleAppMeasurement.framework</packagedDependency>-->
+<!--            <packagedDependency>GoogleUtilities/libGoogleUtilities.a</packagedDependency>-->
+<!--            <packagedDependency>nanopb/libnanopb.a</packagedDependency>-->
     </packagedDependencies>
 </platform>

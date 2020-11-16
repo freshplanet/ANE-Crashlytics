@@ -158,11 +158,7 @@ package com.freshplanet.ane.AirCrashlytics {
 		 */
 		private function _onStatusEvent(e:StatusEvent):void {
 			if(e.code == AirCrashlyticsEvent.CRASH_DETECTED_DURING_PREVIOUS_EXECUTION) {
-				var crashData:Object;
-				if(Capabilities.manufacturer.indexOf("iOS") > -1)
-					crashData = JSON.parse(e.level);
-				else
-					crashData = e.level;
+				var crashData:Object = e.level;
 				this.dispatchEvent(new AirCrashlyticsEvent(AirCrashlyticsEvent.CRASH_DETECTED_DURING_PREVIOUS_EXECUTION, crashData));
 			}
 			else {
