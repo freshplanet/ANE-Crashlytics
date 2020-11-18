@@ -40,6 +40,9 @@
         <copy todir="temp/ios" overwrite="true" includeEmptyDirs="false" flatten="false">
             <fileset dir="../ios/build/Release-iphoneos/">
                 <exclude name="**/*Pods-${name}*"/>
+                <exclude name="**/libGoogleUtilities.a"/>
+                <exclude name="**/libPromisesObjC.a"/>
+                <exclude name="**/libnanopb.a"/>
             </fileset>
         </copy>
 
@@ -48,6 +51,7 @@
             <path>
                 <dirset dir="../ios/">
                     <include name="**/*.framework"/>
+                    <exclude name="**/GoogleAppMeasurement.framework"/>
                 </dirset>
             </path>
             <sequential>
