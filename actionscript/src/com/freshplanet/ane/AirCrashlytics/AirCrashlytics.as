@@ -40,7 +40,11 @@ package com.freshplanet.ane.AirCrashlytics {
 		 * Is AirCrashlytics supported on the current platform
 		 */
 		public static function get isSupported():Boolean {
-			return (Capabilities.manufacturer.indexOf("iOS") > -1 && Capabilities.os.indexOf("x86_64") < 0 && Capabilities.os.indexOf("i386") < 0) || Capabilities.manufacturer.indexOf("Android") > -1;
+			return isIOS || Capabilities.manufacturer.indexOf("Android") > -1;
+		}
+
+		public static function get isIOS():Boolean {
+			return Capabilities.manufacturer.indexOf("iOS") > -1 && Capabilities.os.indexOf("x86_64") < 0 && Capabilities.os.indexOf("i386") < 0;
 		}
 
 		/**
@@ -121,6 +125,14 @@ package com.freshplanet.ane.AirCrashlytics {
 		public function setString(key:String, value:String):void {
 			callNative("AirCrashlyticsSetString", key, value);
 		}
+
+		public function getFCMToken():void {
+			if(!isIOS) {
+				this.dispatchEvent(new AirCrashlyticsEvent(AirCrashlyticsEvent.RECEIVED_FCM_TOKEN_ERROR, "Not implemented on Android"));
+				return;
+			}
+			callNative("AirCrashlyticsGetFCMToken");
+		}
 		
 		// --------------------------------------------------------------------------------------//
 		//																						 //
@@ -160,6 +172,12 @@ package com.freshplanet.ane.AirCrashlytics {
 			if(e.code == AirCrashlyticsEvent.CRASH_DETECTED_DURING_PREVIOUS_EXECUTION) {
 				var crashData:Object = e.level;
 				this.dispatchEvent(new AirCrashlyticsEvent(AirCrashlyticsEvent.CRASH_DETECTED_DURING_PREVIOUS_EXECUTION, crashData));
+			}
+			else if(e.code == AirCrashlyticsEvent.RECEIVED_FCM_TOKEN) {
+				this.dispatchEvent(new AirCrashlyticsEvent(AirCrashlyticsEvent.RECEIVED_FCM_TOKEN, e.level));
+			}
+			else if(e.code == AirCrashlyticsEvent.RECEIVED_FCM_TOKEN_ERROR) {
+				this.dispatchEvent(new AirCrashlyticsEvent(AirCrashlyticsEvent.RECEIVED_FCM_TOKEN_ERROR, e.level));
 			}
 			else {
 				this.dispatchEvent(new Event(e.code));

@@ -19,3 +19,6 @@
 
 #endif /* Constants_h */
 static NSString *const kAirCrashlyticsEvent_CRASH_DETECTED_DURING_PREVIOUS_EXECUTION = @"AirCrashlyticsEvent_crashDetectedDuringPreviousExecution";
+
+static NSString *const kAirCrashlyticsEvent_RECEIVED_FCM_TOKEN = @"AirCrashlyticsEvent_receivedFCMToken";
+static NSString *const kAirCrashlyticsEvent_RECEIVED_FCM_TOKEN_ERROR = @"AirCrashlyticsEvent_receivedFCMTokenError";

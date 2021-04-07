@@ -15,9 +15,11 @@
 
 #import "AirCrashlytics.h"
 #import "Constants.h"
-#import <FirebaseCore.h>
+#import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseAnalytics/FirebaseAnalytics.h>
 #import <FirebaseCrashlytics/FirebaseCrashlytics.h>
+#import <FirebaseMessaging/FirebaseMessaging.h>
+
 
 @interface AirCrashlytics ()
     @property (nonatomic, readonly) FREContext context;
@@ -48,7 +50,7 @@
 - (void) sendEvent:(NSString*)code level:(NSString*)level {
     FREDispatchStatusEventAsync(_context, (const uint8_t*)[code UTF8String], (const uint8_t*)[level UTF8String]);
 }
-    
+
 @end
 
 AirCrashlytics* GetAirCrashlyticsContextNativeData(FREContext context) {
@@ -66,6 +68,7 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsStart) {
         return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
     
     @try {
+        
         if(![FIRApp defaultApp]){
             [FIRApp configure];
         }
@@ -196,6 +199,34 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsSetString) {
     return nil;
 }
 
+DEFINE_ANE_FUNCTION(AirCrashlyticsGetFCMToken) {
+    
+    AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
+    
+    if (!controller)
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+    
+    @try {
+    
+        [[FIRMessaging messaging] tokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+
+            if(error) {
+                [controller sendEvent:kAirCrashlyticsEvent_RECEIVED_FCM_TOKEN_ERROR level:error.localizedDescription];
+            }
+            else {
+                [controller sendEvent:kAirCrashlyticsEvent_RECEIVED_FCM_TOKEN level:token];
+            }
+
+
+        }];
+    }
+    @catch (NSException *exception) {
+        [controller sendLog:[@"Exception occured while trying to get FCM token : " stringByAppendingString:exception.reason]];
+    }
+
+    return nil;
+}
+
 
 #pragma mark - ANE Setup
 
@@ -213,7 +244,8 @@ void AirCrashlyticsContextInitializer(void* extData, const uint8_t* ctxType, FRE
         MAP_FUNCTION(AirCrashlyticsSetBool, NULL),
         MAP_FUNCTION(AirCrashlyticsSetInt, NULL),
         MAP_FUNCTION(AirCrashlyticsSetFloat, NULL),
-        MAP_FUNCTION(AirCrashlyticsSetString, NULL)
+        MAP_FUNCTION(AirCrashlyticsSetString, NULL),
+        MAP_FUNCTION(AirCrashlyticsGetFCMToken, NULL)
     };
     
     *numFunctionsToTest = sizeof(functions) / sizeof(FRENamedFunction);

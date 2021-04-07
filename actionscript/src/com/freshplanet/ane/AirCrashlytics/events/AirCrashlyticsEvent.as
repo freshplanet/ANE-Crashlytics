@@ -18,6 +18,9 @@ import flash.events.Event;
 public class AirCrashlyticsEvent extends Event {
 
 	static public const CRASH_DETECTED_DURING_PREVIOUS_EXECUTION :String = "AirCrashlyticsEvent_crashDetectedDuringPreviousExecution";
+	static public const RECEIVED_FCM_TOKEN :String = "AirCrashlyticsEvent_receivedFCMToken";
+	static public const RECEIVED_FCM_TOKEN_ERROR :String = "AirCrashlyticsEvent_receivedFCMTokenError";
+
 	private var _data:Object;
 	public function AirCrashlyticsEvent(type:String, data:Object = null, bubbles:Boolean = false, cancelable:Boolean = false) {
 		super(type, bubbles, cancelable);
