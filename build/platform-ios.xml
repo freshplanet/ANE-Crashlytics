@@ -9,7 +9,6 @@
             <packagedDependency>FirebaseCoreDiagnostics/libFirebaseCoreDiagnostics.a</packagedDependency>
             <packagedDependency>FirebaseInstallations/libFirebaseInstallations.a</packagedDependency>
             <packagedDependency>GoogleDataTransport/libGoogleDataTransport.a</packagedDependency>
-            <packagedDependency>FIRAnalyticsConnector.framework</packagedDependency>
             <packagedDependency>FirebaseAnalytics.framework</packagedDependency>
             <packagedDependency>FirebaseCrashlytics/libFirebaseCrashlytics.a</packagedDependency>
 

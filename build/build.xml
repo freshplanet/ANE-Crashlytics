@@ -44,6 +44,7 @@
                 <exclude name="**/libPromisesObjC.a"/>
                 <exclude name="**/libnanopb.a"/>
                 <exclude name="**/libProtobuf.a"/>
+                <exclude name="**/XCFrameworkIntermediates/**"/>
             </fileset>
         </copy>
 
