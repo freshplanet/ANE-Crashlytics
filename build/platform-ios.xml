@@ -12,7 +12,7 @@
             <packagedDependency>FirebaseAnalytics.framework</packagedDependency>
             <packagedDependency>FirebaseCrashlytics/libFirebaseCrashlytics.a</packagedDependency>
 
-            <packagedDependency>FirebaseInstanceID/libFirebaseInstanceID.a</packagedDependency>
+<!--            <packagedDependency>FirebaseInstanceID/libFirebaseInstanceID.a</packagedDependency>-->
             <packagedDependency>FirebaseMessaging/libFirebaseMessaging.a</packagedDependency>
 
 <!--            <packagedDependency>PromisesObjC/libPromisesObjC.a</packagedDependency>-->
