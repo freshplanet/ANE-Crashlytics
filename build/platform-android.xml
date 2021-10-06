@@ -19,6 +19,7 @@
 
         <packagedDependency>firebase-analytics-17.1.0.jar</packagedDependency>
         <packagedDependency>firebase-crashlytics-17.1.0.jar</packagedDependency>
+        <packagedDependency>anrwatchdog-1.4.0.jar</packagedDependency>
 
 <!--        <packagedDependency>firebase-encoders-json-16.1.0.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-iid-20.1.5.jar</packagedDependency>-->

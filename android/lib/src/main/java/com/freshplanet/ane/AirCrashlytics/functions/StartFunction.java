@@ -20,6 +20,8 @@ package com.freshplanet.ane.AirCrashlytics.functions;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
 import com.freshplanet.ane.AirCrashlytics.Constants;
+import com.github.anrwatchdog.ANRError;
+import com.github.anrwatchdog.ANRWatchDog;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class StartFunction extends BaseFunction {
@@ -30,6 +32,16 @@ public class StartFunction extends BaseFunction {
 
 		FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
 		FirebaseCrashlytics.getInstance().log("start ane");
+
+		ANRWatchDog watchDog = new ANRWatchDog();
+		watchDog.setReportMainThreadOnly();
+		watchDog.setANRListener(new ANRWatchDog.ANRListener() {
+			@Override
+			public void onAppNotResponding(ANRError error) {
+				FirebaseCrashlytics.getInstance().recordException(error);
+			}
+		}).start();
+
         if(FirebaseCrashlytics.getInstance().didCrashOnPreviousExecution()) {
 			cont.dispatchStatusEventAsync(Constants.AirCrashlyticsEvent_CRASH_DETECTED_DURING_PREVIOUS_EXECUTION, "No crash data");
 		}

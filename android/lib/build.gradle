@@ -29,6 +29,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-crashlytics:17.1.0'
     implementation 'com.google.firebase:firebase-analytics:17.1.0'
+    implementation 'com.github.anrwatchdog:anrwatchdog:1.4.0'
 
 }
 
