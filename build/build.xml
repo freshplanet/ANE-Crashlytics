@@ -54,6 +54,7 @@
                 <dirset dir="../ios/">
                     <include name="**/*.framework"/>
                     <exclude name="**/GoogleAppMeasurement.framework"/>
+                    <exclude name="**/GoogleAppMeasurementIdentitySupport.framework"/>
                 </dirset>
             </path>
             <sequential>
