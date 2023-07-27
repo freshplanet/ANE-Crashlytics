@@ -11,12 +11,12 @@
 <!--        <packagedDependency>customview-1.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>documentfile-1.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>drawerlayout-1.0.0.jar</packagedDependency>-->
-<!--        <packagedDependency>firebase-analytics-19.0.2.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-annotations-16.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-common-20.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-components-17.0.0.jar</packagedDependency>-->
+        <packagedDependency>firebase-analytics-20.1.2.jar</packagedDependency>
         <packagedDependency>anrwatchdog-1.4.0.jar</packagedDependency>
-        <packagedDependency>firebase-crashlytics-18.2.3.jar</packagedDependency>
+        <packagedDependency>firebase-crashlytics-18.3.7.jar</packagedDependency>
 <!--        <packagedDependency>firebase-encoders-17.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-encoders-json-18.0.0.jar</packagedDependency>-->
 <!--        <packagedDependency>firebase-installations-17.0.0.jar</packagedDependency>-->
