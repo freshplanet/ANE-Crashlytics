@@ -291,6 +291,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -311,6 +312,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
