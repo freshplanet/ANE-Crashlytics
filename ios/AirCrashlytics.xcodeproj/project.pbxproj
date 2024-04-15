@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25CD9E3D29D0D63DBCFAFAAA /* Pods_AirCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63FDC5C85FB0E6CC83EAC51 /* Pods_AirCrashlytics.framework */; };
 		A29C4F8C1F18F7F400B52762 /* AirCrashlytics.m in Sources */ = {isa = PBXBuildFile; fileRef = A29C4F8B1F18F7F400B52762 /* AirCrashlytics.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A29C4F8D1F18F7F400B52762 /* AirCrashlytics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A29C4F8A1F18F7F400B52762 /* AirCrashlytics.h */; };
 		A29C4F9D1F1919A000B52762 /* FPANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A29C4F9C1F1919A000B52762 /* FPANEUtils.m */; };
-		BBA536EF3DA1E43526C8FF2A /* libPods-AirCrashlytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 158B0702841D49E41D9E4C63 /* libPods-AirCrashlytics.a */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +27,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		158B0702841D49E41D9E4C63 /* libPods-AirCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AirCrashlytics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69056973E8EA984A25A4960C /* Pods-AirCrashlytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirCrashlytics.release.xcconfig"; path = "Target Support Files/Pods-AirCrashlytics/Pods-AirCrashlytics.release.xcconfig"; sourceTree = "<group>"; };
 		A29C4F871F18F7F400B52762 /* libAirCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirCrashlytics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29C4F8A1F18F7F400B52762 /* AirCrashlytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirCrashlytics.h; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		A29C4F9C1F1919A000B52762 /* FPANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPANEUtils.m; sourceTree = "<group>"; };
 		A29C4F9E1F192B8600B52762 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BE1BFDFDA37EF1EC0D5A6625 /* Pods-AirCrashlytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirCrashlytics.debug.xcconfig"; path = "Target Support Files/Pods-AirCrashlytics/Pods-AirCrashlytics.debug.xcconfig"; sourceTree = "<group>"; };
+		D63FDC5C85FB0E6CC83EAC51 /* Pods_AirCrashlytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirCrashlytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA536EF3DA1E43526C8FF2A /* libPods-AirCrashlytics.a in Frameworks */,
+				25CD9E3D29D0D63DBCFAFAAA /* Pods_AirCrashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,7 @@
 		1CBE556D81695D5BF777CBB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				158B0702841D49E41D9E4C63 /* libPods-AirCrashlytics.a */,
+				D63FDC5C85FB0E6CC83EAC51 /* Pods_AirCrashlytics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
