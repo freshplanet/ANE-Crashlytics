@@ -39,11 +39,8 @@
         <!-- copy the libs and resources to the base temp ios directory -->
         <copy todir="temp/ios" overwrite="true" includeEmptyDirs="false" flatten="false">
             <fileset dir="../ios/build/Release-iphoneos/">
-                <exclude name="**/*Pods-${name}*"/>
-                <exclude name="**/libGoogleUtilities.a"/>
-                <exclude name="**/libPromisesObjC.a"/>
-                <exclude name="**/libnanopb.a"/>
-                <exclude name="**/libProtobuf.a"/>
+                <exclude name="**/Pods_${name}.framework/**"/>
+                <exclude name="**/GoogleUtilities/**"/>
                 <exclude name="**/XCFrameworkIntermediates/**"/>
             </fileset>
         </copy>
@@ -53,17 +50,82 @@
             <path>
                 <dirset dir="../ios/">
                     <include name="**/*.framework"/>
-                    <exclude name="**/GoogleAppMeasurement.framework"/>
-                    <exclude name="**/GoogleAppMeasurementIdentitySupport.framework"/>
+                    <include name="**/*.bundle"/>
+                    <exclude name="**/Pods_${name}.framework/**"/>
+                    <exclude name="**/FBLPromises*"/>
+                    <exclude name="**/GoogleUtilities/**"/>
                 </dirset>
             </path>
             <sequential>
                 <propertyregex property="folder.name" override="true" input="@{path}" regexp=".+\/(.+)" select="\1"/>
-                <copy todir="temp/ios/${folder.name}" overwrite="true" includeEmptyDirs="false" flatten="true">
+                <copy todir="temp/ios/${folder.name}" overwrite="true" includeEmptyDirs="false" flatten="false">
                     <fileset dir="@{path}"/>
                 </copy>
             </sequential>
         </for>
+
+        <!-- shenanigans with dynamic frameworks  -->
+        <delete dir="../bin/Frameworks"/>
+
+        <delete dir="temp/ios/FirebaseAnalytics.framework/Versions" />
+        <delete dir="temp/ios/GoogleAppMeasurement.framework/Versions" />
+        <delete dir="temp/ios/GoogleAppMeasurementIdentitySupport.framework/Versions" />
+
+        <copy todir="../bin/Frameworks/FirebaseCore.framework" >
+            <fileset dir="temp/ios/FirebaseCore.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseCore"/>
+
+        <copy todir="../bin/Frameworks/FirebaseCoreExtension.framework" >
+            <fileset dir="temp/ios/FirebaseCoreExtension.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseCoreExtension"/>
+
+        <copy todir="../bin/Frameworks/FirebaseCoreInternal.framework" >
+            <fileset dir="temp/ios/FirebaseCoreInternal.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseCoreInternal"/>
+
+        <copy todir="../bin/Frameworks/FirebaseCrashlytics.framework" >
+            <fileset dir="temp/ios/FirebaseCrashlytics.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseCrashlytics"/>
+
+        <copy todir="../bin/Frameworks/FirebaseInstallations.framework" >
+            <fileset dir="temp/ios/FirebaseInstallations.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseInstallations"/>
+
+        <copy todir="../bin/Frameworks/FirebaseMessaging.framework" >
+            <fileset dir="temp/ios/FirebaseMessaging.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseMessaging"/>
+
+        <copy todir="../bin/Frameworks/FirebaseRemoteConfigInterop.framework" >
+            <fileset dir="temp/ios/FirebaseRemoteConfigInterop.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseRemoteConfigInterop"/>
+
+        <copy todir="../bin/Frameworks/FirebaseSessions.framework" >
+            <fileset dir="temp/ios/FirebaseSessions.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/FirebaseSessions"/>
+
+        <copy todir="../bin/Frameworks/GoogleDataTransport.framework" >
+            <fileset dir="temp/ios/GoogleDataTransport.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/GoogleDataTransport"/>
+
+        <copy todir="../bin/Frameworks/nanopb.framework" >
+            <fileset dir="temp/ios/nanopb.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/nanopb"/>
+
+        <copy todir="../bin/Frameworks/Promises.framework" >
+            <fileset dir="temp/ios/Promises.framework" includes="**/**" />
+        </copy>
+        <delete dir="temp/ios/PromisesObjC"/>
+        <delete dir="temp/ios/PromisesSwift"/>
 
         <!-- remove the build directory -->
         <delete dir="../ios/build/"/>

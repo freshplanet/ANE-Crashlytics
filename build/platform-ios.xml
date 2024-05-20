@@ -1,23 +1,25 @@
 <platform xmlns="http://ns.adobe.com/air/extension/22.0">
-    <sdkVersion>11.0</sdkVersion>
+    <sdkVersion>12.0</sdkVersion>
     <linkerOptions>
         <option>-lclang_rt.ios</option>
         <option>-ObjC</option>
+        <option>-rpath @executable_path/Frameworks</option>
+        <option>-rpath /usr/lib/swift</option>
     </linkerOptions> 
     <packagedDependencies>
-            <packagedDependency>FirebaseCore/libFirebaseCore.a</packagedDependency>
-            <packagedDependency>FirebaseCoreDiagnostics/libFirebaseCoreDiagnostics.a</packagedDependency>
-            <packagedDependency>FirebaseInstallations/libFirebaseInstallations.a</packagedDependency>
-            <packagedDependency>GoogleDataTransport/libGoogleDataTransport.a</packagedDependency>
             <packagedDependency>FirebaseAnalytics.framework</packagedDependency>
-            <packagedDependency>FirebaseCrashlytics/libFirebaseCrashlytics.a</packagedDependency>
-
-<!--            <packagedDependency>FirebaseInstanceID/libFirebaseInstanceID.a</packagedDependency>-->
-            <packagedDependency>FirebaseMessaging/libFirebaseMessaging.a</packagedDependency>
-
-<!--            <packagedDependency>PromisesObjC/libPromisesObjC.a</packagedDependency>-->
-<!--            <packagedDependency>GoogleAppMeasurement.framework</packagedDependency>-->
-<!--            <packagedDependency>GoogleUtilities/libGoogleUtilities.a</packagedDependency>-->
-<!--            <packagedDependency>nanopb/libnanopb.a</packagedDependency>-->
+            <packagedDependency>FirebaseCore.framework</packagedDependency>
+            <packagedDependency>FirebaseCoreExtension.framework</packagedDependency>
+            <packagedDependency>FirebaseCoreInternal.framework</packagedDependency>
+            <packagedDependency>FirebaseCrashlytics.framework</packagedDependency>
+            <packagedDependency>FirebaseInstallations.framework</packagedDependency>
+            <packagedDependency>FirebaseMessaging.framework</packagedDependency>
+            <packagedDependency>FirebaseRemoteConfigInterop.framework</packagedDependency>
+            <packagedDependency>FirebaseSessions.framework</packagedDependency>
+            <packagedDependency>GoogleAppMeasurement.framework</packagedDependency>
+            <packagedDependency>GoogleAppMeasurementIdentitySupport.framework</packagedDependency>
+            <packagedDependency>GoogleDataTransport.framework</packagedDependency>
+            <packagedDependency>nanopb.framework</packagedDependency>
+            <packagedDependency>Promises.framework</packagedDependency>
     </packagedDependencies>
 </platform>
