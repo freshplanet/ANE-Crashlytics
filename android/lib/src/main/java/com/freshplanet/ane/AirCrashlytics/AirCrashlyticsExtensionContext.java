@@ -23,6 +23,8 @@ import com.adobe.fre.FREFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.CrashFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.GetApiKeyFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.GetVersionFunction;
+import com.freshplanet.ane.AirCrashlytics.functions.LogFunction;
+import com.freshplanet.ane.AirCrashlytics.functions.RecordExceptionFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetBoolFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetFloatFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetIntFunction;
@@ -50,6 +52,8 @@ public class AirCrashlyticsExtensionContext extends FREContext {
 		functions.put("AirCrashlyticsSetInt", new SetIntFunction());
 		functions.put("AirCrashlyticsSetFloat", new SetFloatFunction());
 		functions.put("AirCrashlyticsSetString", new SetStringFunction());
+		functions.put("AirCrashlyticsLog", new LogFunction());
+		functions.put("AirCrashlyticsRecordException", new RecordExceptionFunction());
 		return functions;	
 	}
 }
