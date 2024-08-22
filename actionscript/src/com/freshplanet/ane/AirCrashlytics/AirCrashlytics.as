@@ -126,6 +126,14 @@ package com.freshplanet.ane.AirCrashlytics {
 			callNative("AirCrashlyticsSetString", key, value);
 		}
 
+		public function log(message:String):void {
+			callNative("AirCrashlyticsLog", message);
+		}
+
+		public function recordException(error:Error):void {
+			callNative("AirCrashlyticsRecordException", error.getStackTrace());
+		}
+
 		public function getFCMToken():void {
 			if(!isIOS) {
 				this.dispatchEvent(new AirCrashlyticsEvent(AirCrashlyticsEvent.RECEIVED_FCM_TOKEN_ERROR, "Not implemented on Android"));
