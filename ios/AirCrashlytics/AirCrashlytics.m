@@ -199,6 +199,33 @@ DEFINE_ANE_FUNCTION(AirCrashlyticsSetString) {
     return nil;
 }
 
+DEFINE_ANE_FUNCTION(AirCrashlyticsSetConsent) {
+    
+    AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
+    
+    if (!controller)
+        return AirCrashlytics_FPANE_CreateError(@"context's AirCrashlytics is null", 0);
+    
+    @try {
+        BOOL isAnalyticsConsent = AirCrashlytics_FPANE_FREObjectToBool(argv[0]);
+        BOOL isAdStorageConsent = AirCrashlytics_FPANE_FREObjectToBool(argv[1]);
+        BOOL isAdUserDataConsent = AirCrashlytics_FPANE_FREObjectToBool(argv[2]);
+        BOOL isAdPersonalizationConsent = AirCrashlytics_FPANE_FREObjectToBool(argv[3]);
+        
+        [FIRAnalytics setConsent:@{
+            FIRConsentTypeAnalyticsStorage : isAnalyticsConsent ? FIRConsentStatusGranted : FIRConsentStatusDenied,
+            FIRConsentTypeAdStorage : isAdStorageConsent ? FIRConsentStatusGranted : FIRConsentStatusDenied,
+            FIRConsentTypeAdUserData : isAdUserDataConsent ? FIRConsentStatusGranted : FIRConsentStatusDenied,
+            FIRConsentTypeAdPersonalization : isAdPersonalizationConsent ? FIRConsentStatusGranted : FIRConsentStatusDenied
+        }];
+    }
+    @catch (NSException *exception) {
+        [controller sendLog:[@"Exception occured while trying to set consent value : " stringByAppendingString:exception.reason]];
+    }
+
+    return nil;
+}
+
 DEFINE_ANE_FUNCTION(AirCrashlyticsGetFCMToken) {
     
     AirCrashlytics* controller = GetAirCrashlyticsContextNativeData(context);
@@ -309,6 +336,7 @@ void AirCrashlyticsContextInitializer(void* extData, const uint8_t* ctxType, FRE
         MAP_FUNCTION(AirCrashlyticsSetInt, NULL),
         MAP_FUNCTION(AirCrashlyticsSetFloat, NULL),
         MAP_FUNCTION(AirCrashlyticsSetString, NULL),
+        MAP_FUNCTION(AirCrashlyticsSetConsent, NULL),
         MAP_FUNCTION(AirCrashlyticsGetFCMToken, NULL),
         MAP_FUNCTION(AirCrashlyticsLog, NULL),
         MAP_FUNCTION(AirCrashlyticsRecordException, NULL)
