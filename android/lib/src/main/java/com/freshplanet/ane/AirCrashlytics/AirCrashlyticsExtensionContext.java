@@ -29,6 +29,7 @@ import com.freshplanet.ane.AirCrashlytics.functions.SetBoolFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetFloatFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetIntFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetStringFunction;
+import com.freshplanet.ane.AirCrashlytics.functions.SetConsentFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetUserIdentifierFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.StartFunction;
 
@@ -52,6 +53,7 @@ public class AirCrashlyticsExtensionContext extends FREContext {
 		functions.put("AirCrashlyticsSetInt", new SetIntFunction());
 		functions.put("AirCrashlyticsSetFloat", new SetFloatFunction());
 		functions.put("AirCrashlyticsSetString", new SetStringFunction());
+		functions.put("AirCrashlyticsSetConsent", new SetConsentFunction());
 		functions.put("AirCrashlyticsLog", new LogFunction());
 		functions.put("AirCrashlyticsRecordException", new RecordExceptionFunction());
 		return functions;	

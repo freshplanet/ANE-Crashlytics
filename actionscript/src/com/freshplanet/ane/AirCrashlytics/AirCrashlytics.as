@@ -126,6 +126,13 @@ package com.freshplanet.ane.AirCrashlytics {
 			callNative("AirCrashlyticsSetString", key, value);
 		}
 
+		/**
+		 * Set up consent mode
+		 */
+		public function setConsent(isAnalyticsConsent:Boolean, isAdStorageConsent:Boolean, isAdUserDataConsent:Boolean, isAdPersonalizationConsent:Boolean):void {
+			callNative("AirCrashlyticsSetConsent", isAnalyticsConsent, isAdStorageConsent, isAdUserDataConsent, isAdPersonalizationConsent);
+		}
+
 		public function log(message:String):void {
 			callNative("AirCrashlyticsLog", message);
 		}
